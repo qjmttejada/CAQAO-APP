@@ -9,11 +9,14 @@
             type="com.example.caqao.models.CacaoDetectionViewModel" />
     </data>
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.GalleryFragment"
-        android:background="@color/colorBackground">
+        android:background="@color/colorBackground"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photos_grid"

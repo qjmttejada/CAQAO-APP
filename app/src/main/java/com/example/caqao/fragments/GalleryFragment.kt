@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.activity.OnBackPressedCallback
+import com.example.caqao.CacaoDetectionListener
 import com.example.caqao.CacaoGridAdapter
 import com.example.caqao.databinding.FragmentGalleryBinding
 import com.example.caqao.models.CacaoDetectionViewModel
@@ -29,7 +31,11 @@ class GalleryFragment : Fragment() {
 
         binding.viewModel = sharedViewModel
 
-        binding.photosGrid.adapter = CacaoGridAdapter()
+        binding.photosGrid.adapter = CacaoGridAdapter(CacaoDetectionListener { cacaoDetectionId ->
+            Toast.makeText(context, "${cacaoDetectionId}", Toast.LENGTH_SHORT).show()
+        })
+
+        // binding.photosGrid.adapter = CacaoGridAdapter()
 
         sharedViewModel.getCacaoDetections()
 
