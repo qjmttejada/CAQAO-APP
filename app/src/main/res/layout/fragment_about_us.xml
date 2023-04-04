@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.AboutUsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/aboutConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground">
+
+            <ImageView
+                android:id="@+id/caqaoLogo"
+                android:layout_width="264dp"
+                android:layout_height="486dp"
+                android:layout_marginTop="-72dp"
+                android:src="@drawable/caqao_new_logo_yellow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_constraintEnd_toEndOf="parent"
+                tools:layout_constraintStart_toStartOf="parent"
+                tools:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/aboutTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="About CAQAO"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/caqaoSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="CAQAO: Cacao Automated Quality Assessment \nusing Object Detection"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:fontFamily="@font/lato"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutTitle" />
+
+            <TextView
+                android:id="@+id/aboutdesigntitle"
+                android:layout_width="329dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:text="The app for the Design of an Automated Visual Quality Assessment and Grading for Dried Cacao Beans using Deep Learning."
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                app:fontFamily="@font/lato"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/caqaoSubtitle" />
+
+            <TextView
+                android:id="@+id/aboutdesigndesc"
+                android:layout_width="329dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="The app is a system that automatically assess the internal physical quality of fermented dried cacao beans subjected to cut test using Deep learning and Computer Vision. The project aims to improve the Cacao beans production by automating the manual and time-consuming physical quality evaluation of cacao beans and giving the farmer useful insights regarding his post-harvest protocols."
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                app:fontFamily="@font/lato"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutdesigntitle" />
+
+            <TextView
+                android:id="@+id/developers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:text="Developed by:\nTeam 19"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutdesigndesc"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+
+</layout>

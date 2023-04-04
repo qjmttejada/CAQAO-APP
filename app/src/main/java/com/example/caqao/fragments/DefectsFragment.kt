@@ -1,0 +1,78 @@
+package com.example.caqao.fragments
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation
+import com.example.caqao.R
+import com.example.caqao.databinding.FragmentDefectsBinding
+
+class DefectsFragment : Fragment() {
+    private lateinit var binding: FragmentDefectsBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        super.onCreate(savedInstanceState)
+        binding = FragmentDefectsBinding.inflate(layoutInflater)
+
+        binding.mouldyImgButton.setOnClickListener {
+            val showMouldyDialog = DialogFragment()
+            val args = Bundle()
+            args.putInt("layoutId", 1)
+            showMouldyDialog.arguments = args
+            showMouldyDialog.show((activity as AppCompatActivity).supportFragmentManager,"showMouldyPopUp")
+        }
+
+        binding.insectImgButton.setOnClickListener {
+            val showInsectDialog = DialogFragment()
+            val args = Bundle()
+            args.putInt("layoutId", 2)
+            showInsectDialog.arguments = args
+            showInsectDialog.show((activity as AppCompatActivity).supportFragmentManager,"showInsectPopUp")
+        }
+
+        binding.slateImgButton.setOnClickListener {
+            val showSlateDialog = DialogFragment()
+            val args = Bundle()
+            args.putInt("layoutId", 3)
+            showSlateDialog.arguments = args
+            showSlateDialog.show((activity as AppCompatActivity).supportFragmentManager,"showSlatePopUp")
+        }
+
+        binding.germinatedImgButton.setOnClickListener {
+            val showGerminatedDialog = DialogFragment()
+            val args = Bundle()
+            args.putInt("layoutId", 4)
+            showGerminatedDialog.arguments = args
+            showGerminatedDialog.show((activity as AppCompatActivity).supportFragmentManager,"showGerminatedPopUp")
+        }
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+            }
+
+        })
+        val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+
+        view.visibility = View.GONE
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Defects"
+    }
+
+
+
+
+
+}
