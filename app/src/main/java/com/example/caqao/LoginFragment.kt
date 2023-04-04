@@ -42,7 +42,9 @@ class LoginFragment : Fragment() {
             val password = binding!!.loginPassword.text.toString()
 
             // TODO: verify if fields contain valid values
-            loginUser(username, password)
+            // loginUser(username, password)
+            val intent = Intent(requireActivity(), MainActivity::class.java)
+            startActivity(intent)
         }
 
         binding?.backBtn?.setOnClickListener {
