@@ -61,6 +61,12 @@ interface CacaoApiService {
 
     @GET("detections")
     suspend fun getDetections(): List<CacaoDetection>
+
+    @POST("get_detection_with_id")
+    @FormUrlEncoded
+    suspend fun getDetectionWithId(
+        @Field("cacaoDetectionId") cacaoDetectionId: Int,
+    ): CacaoDetection
 }
 
 object CacaoApi {

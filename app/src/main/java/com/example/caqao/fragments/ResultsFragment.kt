@@ -26,8 +26,8 @@ class ResultsFragment : Fragment() {
         val fragmentBinding = FragmentResultsBinding.inflate(inflater, container, false)
         binding = fragmentBinding
 
-//        val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
-//        view.visibility = View.GONE
+        val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+        view.visibility = View.GONE
 
         return fragmentBinding.root
     }

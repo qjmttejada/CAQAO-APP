@@ -22,8 +22,6 @@
         <action
             android:id="@+id/action_homeFragment_to_fissuringFragment"
             app:destination="@id/fissuringFragment" />
-            android:id="@+id/action_homeFragment_to_assessFragment2"
-            app:destination="@id/assessFragment" />
     </fragment>
     <fragment
         android:id="@+id/assessFragment"
@@ -54,7 +52,6 @@
         android:name="com.example.caqao.fragments.FissuringFragment"
         android:label="fragment_fissuring"
         tools:layout="@layout/fragment_fissuring" />
-        tools:layout="@layout/fragment_results" />
     <fragment
         android:id="@+id/AboutUsFragment"
         android:name="com.example.caqao.fragments.AboutUsFragment"
@@ -74,10 +71,25 @@
         android:id="@+id/galleryFragment"
         android:name="com.example.caqao.fragments.GalleryFragment"
         android:label="fragment_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_cacaoDetailFragment"
+            app:destination="@id/cacaoDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/analyticsFragment"
         android:name="com.example.caqao.fragments.AnalyticsFragment"
         android:label="fragment_analytics"
         tools:layout="@layout/fragment_analytics" />
+    <fragment
+        android:id="@+id/cacaoDetailFragment"
+        android:name="com.example.caqao.caqaodetail.CacaoDetailFragment"
+        android:label="CacaoDetailFragment" >
+        <argument
+            android:name="cacaoDetectionId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_cacaoDetailFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
 </navigation>

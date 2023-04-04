@@ -50,14 +50,14 @@ fun bindRecyclerView(recyclerView: RecyclerView,
 }
 
 @BindingAdapter("cacaoColorBarChart")
-fun bindCacaoColorBarchart(barChart: BarChart, cacaoDetection: CacaoDetection) {
+fun bindCacaoColorBarchart(barChart: BarChart, cacaoDetection: CacaoDetection?) {
     var barList = ArrayList<BarEntry>()
     lateinit var barDataSet: BarDataSet
     lateinit var barData: BarData
-    barList.add(BarEntry(0f, cacaoDetection.veryDarkBrown.toFloat()))
-    barList.add(BarEntry(1f,cacaoDetection.brown.toFloat()))
-    barList.add(BarEntry(2f,cacaoDetection.partlyPurple.toFloat()))
-    barList.add(BarEntry(3f,cacaoDetection.totalPurple.toFloat()))
+    barList.add(BarEntry(0f, cacaoDetection?.veryDarkBrown?.toFloat() ?: 0f))
+    barList.add(BarEntry(1f, cacaoDetection?.brown?.toFloat() ?: 0f))
+    barList.add(BarEntry(2f, cacaoDetection?.partlyPurple?.toFloat() ?: 0f))
+    barList.add(BarEntry(3f, cacaoDetection?.totalPurple?.toFloat() ?: 0f))
     // sort the entries by decreasing value
     barList.sortByDescending { it.y }
     barDataSet = BarDataSet(barList, "Cacao Colors")
@@ -87,14 +87,14 @@ fun bindCacaoColorBarchart(barChart: BarChart, cacaoDetection: CacaoDetection) {
 }
 
 @BindingAdapter("cacaoDefectBarChart")
-fun bindCacaoDefectBarchart(barChart: BarChart, cacaoDetection: CacaoDetection) {
+fun bindCacaoDefectBarchart(barChart: BarChart, cacaoDetection: CacaoDetection?) {
     var barList = ArrayList<BarEntry>()
     lateinit var barDataSet: BarDataSet
     lateinit var barData: BarData
-    barList.add(BarEntry(0f, cacaoDetection.slaty.toFloat()))
-    barList.add(BarEntry(1f, cacaoDetection.mouldy.toFloat()))
-    barList.add(BarEntry(2f,cacaoDetection.insectInfested.toFloat()))
-    barList.add(BarEntry(3f,cacaoDetection.germinated.toFloat()))
+    barList.add(BarEntry(0f, cacaoDetection?.slaty?.toFloat() ?: 0f))
+    barList.add(BarEntry(1f, cacaoDetection?.mouldy?.toFloat() ?: 0f))
+    barList.add(BarEntry(2f, cacaoDetection?.insectInfested?.toFloat() ?: 0f))
+    barList.add(BarEntry(3f, cacaoDetection?.germinated?.toFloat() ?: 0f))
     // sort the entries by decreasing value
     barList.sortByDescending { it.y }
     barDataSet = BarDataSet(barList, "Cacao Defects")
@@ -123,15 +123,15 @@ fun bindCacaoDefectBarchart(barChart: BarChart, cacaoDetection: CacaoDetection) 
 }
 
 @BindingAdapter("fissuringGradeBarChart")
-fun bindFissuringGradeBarChart(barChart: BarChart, cacaoDetection: CacaoDetection) {
+fun bindFissuringGradeBarChart(barChart: BarChart, cacaoDetection: CacaoDetection?) {
 
     var barList = ArrayList<BarEntry>()
     lateinit var barDataSet: BarDataSet
     lateinit var barData: BarData
-    barList.add(BarEntry(0f,cacaoDetection.g1.toFloat()))
-    barList.add(BarEntry(1f, cacaoDetection.g2.toFloat()))
-    barList.add(BarEntry(2f, cacaoDetection.g3.toFloat()))
-    barList.add(BarEntry(3f, cacaoDetection.g4.toFloat()))
+    barList.add(BarEntry(0f, cacaoDetection?.g1?.toFloat() ?: 0f))
+    barList.add(BarEntry(1f, cacaoDetection?.g2?.toFloat() ?: 0f))
+    barList.add(BarEntry(2f, cacaoDetection?.g3?.toFloat() ?: 0f))
+    barList.add(BarEntry(3f, cacaoDetection?.g4?.toFloat() ?: 0f))
     // sort the entries by decreasing value
     barList.sortByDescending { it.y }
     barDataSet = BarDataSet(barList, "Fissuring Grades")
