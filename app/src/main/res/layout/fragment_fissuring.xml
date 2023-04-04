@@ -26,7 +26,7 @@
             <LinearLayout
                 android:id="@+id/rounded_rectangle_up"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="170dp"
                 android:layout_marginTop="240dp"
                 android:background="@drawable/rounded_rectangle_up"
                 android:backgroundTint="@color/colorBackground"
@@ -52,18 +52,22 @@
             <TextView
                 android:id="@+id/fissuring_description"
                 android:layout_width="365dp"
-                android:layout_height="66dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/lato"
-                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+                android:text="@string/fissuring_description"
                 android:textColor="@color/black"
                 android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fissuring_title" />
+                app:layout_constraintTop_toBottomOf="@+id/fissuring_title"
+                android:justificationMode="inter_word"
+                android:paddingLeft="10dp"/>
 
             <GridLayout
-                android:layout_width="wrap_content"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:columnCount="1"
@@ -83,51 +87,83 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="8dp">
 
-                    <TextView
-                        android:id="@+id/g1_description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/lato_bold"
-                        android:text="Grade 1"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="230dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        <LinearLayout
+                            android:id="@+id/g1_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="150dp"
-                        android:layout_marginEnd="80dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Click image to view photo."
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:textStyle="italic" />
+                            <ImageButton
+                                android:id="@+id/g1_img_button"
+                                android:layout_width="100dp"
+                                android:layout_height="140dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/fissuring_g1"
+                                android:scaleType="fitCenter"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                />
+                        </LinearLayout>
 
-                    <ImageButton
-                        android:id="@+id/g1_img_button"
-                        android:layout_width="100dp"
-                        android:layout_height="140dp"
-                        android:layout_gravity="left|center"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/fissuring_g1"
-                        android:scaleType="fitCenter"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:clickable="true"
-                        />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/g1_img"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <TextView
+                                android:id="@+id/g1_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="Grade 1"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/g1_description"
+                                android:layout_width="230dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="20dp"
+                                android:fontFamily="@font/lato"
+                                android:text="@string/g1_description"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:justificationMode="inter_word"
+                                android:paddingLeft="10dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="80dp"
+                                android:fontFamily="@font/lato"
+                                android:text="Click image to view photo."
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="italic" />
+
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -142,51 +178,83 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="8dp">
 
-                    <TextView
-                        android:id="@+id/g2_description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/lato_bold"
-                        android:text="Grade 2"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="230dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        <LinearLayout
+                            android:id="@+id/g2_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="150dp"
-                        android:layout_marginEnd="80dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Click image to view photo."
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:textStyle="italic" />
+                            <ImageButton
+                                android:id="@+id/g2_img_button"
+                                android:layout_width="100dp"
+                                android:layout_height="140dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/fissuring_g2"
+                                android:scaleType="fitCenter"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                />
+                        </LinearLayout>
 
-                    <ImageButton
-                        android:id="@+id/g2_img_button"
-                        android:layout_width="100dp"
-                        android:layout_height="140dp"
-                        android:layout_gravity="left|center"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/fissuring_g2"
-                        android:scaleType="fitCenter"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:clickable="true"
-                        />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/g2_img"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <TextView
+                                android:id="@+id/g2_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="Grade 2"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/g2_description"
+                                android:layout_width="230dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="20dp"
+                                android:fontFamily="@font/lato"
+                                android:text="@string/g2_description"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:justificationMode="inter_word"
+                                android:paddingLeft="10dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="80dp"
+                                android:fontFamily="@font/lato"
+                                android:text="Click image to view photo."
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="italic" />
+
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -201,113 +269,176 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="8dp">
 
-                    <TextView
-                        android:id="@+id/g3_description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/lato_bold"
-                        android:text="Grade 3"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="230dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        <LinearLayout
+                            android:id="@+id/g3_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="150dp"
-                        android:layout_marginEnd="80dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Click image to view photo."
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:textStyle="italic" />
+                            <ImageButton
+                                android:id="@+id/g3_img_button"
+                                android:layout_width="100dp"
+                                android:layout_height="140dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/fissuring_g3"
+                                android:scaleType="fitCenter"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                />
+                        </LinearLayout>
 
-                    <ImageButton
-                        android:id="@+id/g3_img_button"
-                        android:layout_width="100dp"
-                        android:layout_height="140dp"
-                        android:layout_gravity="left|center"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/fissuring_g3"
-                        android:scaleType="fitCenter"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:clickable="true"
-                        />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/g3_img"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <TextView
+                                android:id="@+id/g3_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="Grade 3"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/g3_description"
+                                android:layout_width="230dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="20dp"
+                                android:fontFamily="@font/lato"
+                                android:text="@string/g3_description"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:justificationMode="inter_word"
+                                android:paddingLeft="10dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="80dp"
+                                android:fontFamily="@font/lato"
+                                android:text="Click image to view photo."
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="italic" />
+
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/g4"
+                    android:id="@+id/g4_card"
                     android:layout_width="375dp"
                     android:layout_height="180dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="40dp"
+                    android:layout_margin="10dp"
                     app:cardBackgroundColor="@color/colorSecondaryLight"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="8dp">
+                    app:cardElevation="8dp"
+                    android:layout_marginBottom="40dp">
 
-                    <TextView
-                        android:id="@+id/g4_description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/lato_bold"
-                        android:text="Grade 4"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
 
-                    <TextView
-                        android:layout_width="230dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="55dp"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        <LinearLayout
+                            android:id="@+id/g4_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="150dp"
-                        android:layout_marginEnd="80dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Click image to view photo."
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:textStyle="italic" />
+                            <ImageButton
+                                android:id="@+id/g4_img_button"
+                                android:layout_width="100dp"
+                                android:layout_height="140dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/fissuring_g4"
+                                android:scaleType="fitCenter"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                />
+                        </LinearLayout>
 
-                    <ImageButton
-                        android:id="@+id/g4_img_button"
-                        android:layout_width="100dp"
-                        android:layout_height="140dp"
-                        android:layout_gravity="left|center"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/fissuring_g4"
-                        android:scaleType="fitCenter"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:clickable="true"
-                        />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/g4_img"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <TextView
+                                android:id="@+id/g4_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="Grade 4"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/g4_description"
+                                android:layout_width="230dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="20dp"
+                                android:fontFamily="@font/lato"
+                                android:text="@string/g4_description"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:justificationMode="inter_word"
+                                android:paddingLeft="10dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginEnd="80dp"
+                                android:fontFamily="@font/lato"
+                                android:text="Click image to view photo."
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="italic" />
+
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 

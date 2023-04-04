@@ -13,4 +13,23 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
+    <string name="welcome_msg">Improve quality assessment of dried fermented cacao beans using CAQAO. Assess quality of cacao beans in batches and learn more about the overall quality of cacao beans. </string>
+
+    <string name="defects_description">Defective beans are cacao beans that are mouldy, insect-infested, slaty, and germinated. If a bean presents two or more defects, the defect that counts as the worse condition is the one that appears first in the list. The list is in descending order of importance; with mouldy having the highest importance and germinated having the lowest importance. </string>
+    <string name="mouldy_description">Mold present on parts of the cacao bean which is visible to the naked eye.</string>
+    <string name="germinated_description">Shell of the cacao which have been pierced, slit or broken by a growth of the seed germ or presence of radicle.</string>
+    <string name="insect_description">Cacao bean of which its parts are found to contain insects or have been damaged by insects .</string>
+    <string name="slate_description">Cacao bean which is unfissured and shows a purple-gray color on half or more of the surface exposed by the cut test.</string>
+
+    <string name="color_description">Cacao beans which has undergone fermentation process of which the cotyledons are fissured with color ranging from brown, partly purple, total purple, and very dark brown.</string>
+    <string name="color_brown">Cacao beans that have light to dark brown coloration on its surface. These cacao bean is fully fermented and are used to make high-quality cacao products.</string>
+    <string name="color_partlypurple">Cacao beans that has a mix of purple and brown coloration. This cacao bean is likely not fully ripe or mature.</string>
+    <string name="color_totalpurple">Total purple beans are cacao beans that has a fully purple coloration. This cacao bean is not ripe or mature. </string>
+    <string name="color_verydarkbrown">Cacao beans that has a very dark brown or black coloration on its surface. This cacao bean is likely overfermented or fermented for too long. </string>
+
+    <string name="fissuring_description">Fissuring is characterized by the opening up of large splits or rifts within the beans\' internal structure. Beans that are heavily fissured are generally more fermented than beans that have a cheesy or slate appearance when cut. </string>
+    <string name="g1_description">Cacao beans with grade 1 fissuring are fully fermented cacao beans. Almost all of its surface is heavily fissured or has small branch-like lines. </string>
+    <string name="g2_description">Cacao beans with grade 2 fissuring are partially fermented cacao beans. Fissures have formed on its surface but is still smooth in some areas. </string>
+    <string name="g3_description">Cacao beans with grade 3 fissuring are slightly fermented cacao beans. It is lightly fissured or has a few branch-like lines on its surface. </string>
+    <string name="g4_description">Cacao beans with grade 4 fissuring are unfermented and is characterized with a cut bean surface that is relatively smooth. </string>
 </resources>
