@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         bottomNavigation.show(R.id.homeFragment)
         bottomNavigation.add(MeowBottomNavigation.Model(R.id.galleryFragment , R.drawable.ic_photo))
         bottomNavigation.add(MeowBottomNavigation.Model(R.id.homeFragment, R.drawable.ic_focus))
-        bottomNavigation.add(MeowBottomNavigation.Model(R.id.analyticsFragment, R.drawable.ic_analytics))
+//        bottomNavigation.add(MeowBottomNavigation.Model(R.id.analyticsFragment, R.drawable.ic_analytics))
 
         bottomNavigation.setOnClickMenuListener {
             when (it.id) {
@@ -82,12 +82,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 //                        .replace(R.id.nav_host_fragment, HomeFragment()).commit()
                     supportActionBar!!.title = "Home"
                 }
-                R.id.analyticsFragment -> {
-//                    replaceFragment(AnalyticsFragment.newInstance())
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment, AnalyticsFragment()).commit()
-                    supportActionBar!!.title = "Graph"
-                }
+//                R.id.analyticsFragment -> {
+////                    replaceFragment(AnalyticsFragment.newInstance())
+//                    supportFragmentManager.beginTransaction()
+//                        .replace(R.id.nav_host_fragment, AnalyticsFragment()).commit()
+//                    supportActionBar!!.title = "Graph"
+//                }
 
                 else -> {
                     replaceFragment(HomeFragment.newInstance())
@@ -98,9 +98,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         //drawer layout
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.ProfileFragment -> {
+                R.id.homeFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment, ProfileFragment()).commit()
+                        .replace(R.id.nav_host_fragment, HomeFragment()).commit()
                     supportActionBar!!.title = "Profile"
                 }
                 R.id.AboutUsFragment -> {

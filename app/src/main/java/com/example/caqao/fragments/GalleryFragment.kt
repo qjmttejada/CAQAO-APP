@@ -48,8 +48,6 @@ class GalleryFragment : Fragment() {
                 .replace(R.id.nav_host_fragment, fragment).commit()
         })
 
-
-
         return binding.root
     }
 
@@ -62,7 +60,6 @@ class GalleryFragment : Fragment() {
             }
         })
     }
-
 
     companion object {
         fun newInstance(): GalleryFragment{

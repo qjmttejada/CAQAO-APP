@@ -1,10 +1,12 @@
 package com.example.caqao.fragments
 
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -34,7 +36,9 @@ class AssessFragment : Fragment() {
         binding?.apply {
             viewModel = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
-            assessBtn.setOnClickListener { assessCacaoBeans() }
+            assessBtn.setOnClickListener {
+                assessCacaoBeans()
+            }
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
@@ -47,11 +51,23 @@ class AssessFragment : Fragment() {
     }
 
     fun assessCacaoBeans() {
-        val beanSize = binding?.beanCountInputEditText?.text.toString().toInt()
-        sharedViewModel.assessCacaoBeans(requireContext(), requireContext().contentResolver, beanSize)
-//        findNavController().navigate(R.id.action_assessFragment_to_resultsFragment)
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, ResultsFragment()).commit()
+        when {
+            TextUtils.isEmpty(binding?.beanCountInputEditText?.text.toString()) -> {
+                binding?.beanCountInputEditText?.error = "Required field is empty"
+                Toast.makeText(
+                    requireContext(),
+                    "Please input bean count",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else -> {
+                val beanSize = binding?.beanCountInputEditText?.text.toString().toInt()
+                sharedViewModel.assessCacaoBeans(requireContext(), requireContext().contentResolver,
+                    beanSize)
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment, ResultsFragment()).commit()
+            }
+        }
     }
 
     override fun onDestroyView() {
