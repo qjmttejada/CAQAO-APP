@@ -11,6 +11,7 @@
             type="com.example.caqao.models.CacaoDetectionViewModel" />
     </data>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -222,7 +223,6 @@
 
 
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
@@ -232,8 +232,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
             android:gravity="bottom"
             android:orientation="vertical">
 
@@ -244,6 +244,8 @@
                 android:text="Upload"
                 android:layout_gravity="end"
                 android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:backgroundTint="@color/colorSecondaryLight"
                 android:clickable="true"
                 android:contentDescription="Upload"
@@ -259,6 +261,8 @@
                 android:layout_gravity="end"
                 android:clickable="true"
                 android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:backgroundTint="@color/colorSecondary"
                 android:contentDescription="Capture"
                 android:focusable="true"
@@ -270,6 +274,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:backgroundTint="@color/colorPrimary"
                 android:clickable="true"
                 android:contentDescription="More"

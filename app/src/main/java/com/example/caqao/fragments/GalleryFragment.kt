@@ -5,9 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.activity.OnBackPressedCallback
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.caqao.CacaoDetectionListener
 import com.example.caqao.CacaoGridAdapter
+import com.example.caqao.R
+import com.example.caqao.caqaodetail.CacaoDetailFragment
 import com.example.caqao.databinding.FragmentGalleryBinding
 import com.example.caqao.models.CacaoDetectionViewModel
 
@@ -25,13 +31,22 @@ class GalleryFragment : Fragment() {
 //        return inflater.inflate(R.layout.fragment_gallery, container, false)
         val binding = FragmentGalleryBinding.inflate(inflater)
 
+        binding.viewModel = sharedViewModel
+        sharedViewModel.getCacaoDetections()
         binding.lifecycleOwner = this
 
-        binding.viewModel = sharedViewModel
+        binding.photosGrid.adapter = CacaoGridAdapter(CacaoDetectionListener { cacaoDetectionId ->
+            // Toast.makeText(context, "${cacaoDetectionId}", Toast.LENGTH_SHORT).show()
 
-        binding.photosGrid.adapter = CacaoGridAdapter()
+            val args = Bundle()
+            args.putInt("cacaoDetectionId", cacaoDetectionId)
 
-        sharedViewModel.getCacaoDetections()
+            val fragment = CacaoDetailFragment()
+            fragment.arguments = args
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, fragment).commit()
+        })
 
         return binding.root
     }
@@ -45,7 +60,6 @@ class GalleryFragment : Fragment() {
             }
         })
     }
-
 
     companion object {
         fun newInstance(): GalleryFragment{

@@ -147,4 +147,16 @@ class CacaoDetectionViewModel: ViewModel() {
     fun resetUserToken() {
         _userToken.value = UserToken("--", 401)
     }
+
+    private val _navigateToCacaoDetail = MutableLiveData<Int?>()
+    val navigateToCacaoDetail
+        get() = _navigateToCacaoDetail
+
+    fun onCacaoDetectionClicked(id: Int) {
+        _navigateToCacaoDetail.value = id
+    }
+
+    fun onSleepDetailNavigated() {
+        _navigateToCacaoDetail.value = null
+    }
 }

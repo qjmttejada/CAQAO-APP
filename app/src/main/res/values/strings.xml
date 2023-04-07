@@ -32,4 +32,7 @@
     <string name="g2_description">Cacao beans with grade 2 fissuring are partially fermented cacao beans. Fissures have formed on its surface but is still smooth in some areas. </string>
     <string name="g3_description">Cacao beans with grade 3 fissuring are slightly fermented cacao beans. It is lightly fissured or has a few branch-like lines on its surface. </string>
     <string name="g4_description">Cacao beans with grade 4 fissuring are unfermented and is characterized with a cut bean surface that is relatively smooth. </string>
+
+    <string name="bean_grade">Bean Grade: %s</string>
+    <string name="date">Date: %s</string>
 </resources>

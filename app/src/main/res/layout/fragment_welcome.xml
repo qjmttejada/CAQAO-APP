@@ -120,7 +120,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="@dimen/_18sdp"
                 android:layout_marginBottom="@dimen/_31sdp"
-                android:layout_marginEnd="@dimen/_40sdp"
+                android:layout_marginEnd="@dimen/_31sdp"
                 android:background="@drawable/sign_up_btn"
                 android:fontFamily="@font/lato_bold"
                 android:text="Sign Up"
