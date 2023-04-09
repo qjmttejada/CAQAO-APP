@@ -36,6 +36,8 @@
     <string name="bean_grade">Bean Grade: %s</string>
     <string name="date">Date: %s</string>
 
+    <string name="beangrading_description">Cacao bean grading is the classification of cacao beans according to bean size and the proportion of defective beans to good beans.</string>
+
     <string name="grade1a">
         •  Highest quality\n
         •  Large and uniform in \n\t\tsize\n
@@ -52,30 +54,30 @@
 
     <string name="grade1c">
         •  High quality\n
-        •  Size variance is\n\t\t greater\n
+        •  Smaller and uneven \n\t\t in size\n
         •  Few minor defects\n
         •  Fully fermented and \n\t\t dried properly
     </string>
 
     <string name="grade2a">
         •  Low quality\n
-        •  Smaller and uneven \n\t\t in size\n
+        •  Large and uniform in \n\t\tsize\n
         •  More noticeable\n\t\t defects\n
-        •  Not fully fermented \n\t\t and dried properly
+        •  Imperfect or uneven\n\t\t fermentation
     </string>
 
     <string name="grade2b">
         •  Lower quality\n
-        •  Much smaller and \n\t\t uneven in size\n
+        •  Large but less\n\t\t uniform in size\n
         •  More noticeable\n\t\t defects\n
-        •  Not fully fermented \n\t\t and dried properly
+        •  Imperfect or uneven\n\t\t fermentation
     </string>
 
     <string name="grade2c">
         •  Lowest quality\n
-        •  Size variance is greater\n
+        •  Smaller and uneven \n\t\t in size\n
         •  More noticeable\n\t\t defects\n
-        •  Not fully fermented \n\t\t and dried properly\n
+        •  Imperfect or uneven\n\t\t fermentation\n
         •  Only suitable for\n\t\t industrial applications
     </string>
 
