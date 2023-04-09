@@ -141,7 +141,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="20dp"
                                 android:fontFamily="@font/lato"
-                                android:text="@string/color_brown"
+                                android:text="@string/color_brown_description"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
                                 android:justificationMode="inter_word"/>
@@ -231,7 +231,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="20dp"
                                 android:fontFamily="@font/lato"
-                                android:text="@string/color_partlypurple"
+                                android:text="@string/color_partlypurple_description"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
                                 android:justificationMode="inter_word"/>
@@ -321,7 +321,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="20dp"
                                 android:fontFamily="@font/lato"
-                                android:text="@string/color_totalpurple"
+                                android:text="@string/color_totalpurple_description"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
                                 android:justificationMode="inter_word"/>
@@ -412,7 +412,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="20dp"
                                 android:fontFamily="@font/lato"
-                                android:text="@string/color_verydarkbrown"
+                                android:text="@string/color_verydarkbrown_description"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
                                 android:justificationMode="inter_word"/>

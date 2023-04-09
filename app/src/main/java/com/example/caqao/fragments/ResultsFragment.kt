@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
 import com.example.caqao.databinding.FragmentResultsBinding
@@ -49,7 +50,9 @@ class ResultsFragment : Fragment() {
             override fun handleOnBackPressed() {
             }
         })
+
     }
+
 
 
     override fun onDestroyView() {

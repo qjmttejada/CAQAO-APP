@@ -15,8 +15,8 @@ import com.example.caqao.R
 class FAQFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private var mList = ArrayList<FaqsData>()
-    private lateinit var adapter : FaqsAdapter
+    private var mList = ArrayList<RecyclerViewData>()
+    private lateinit var adapter : RecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +27,7 @@ class FAQFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         addDataToList()
-        adapter = FaqsAdapter(mList)
+        adapter = RecyclerViewAdapter(mList)
         recyclerView.adapter = adapter
 
         return view
@@ -35,19 +35,19 @@ class FAQFragment : Fragment() {
 
     private fun addDataToList() {
         mList.add(
-            FaqsData(
+            RecyclerViewData(
                 "What is CAQAO?",
                 "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible."
             )
         )
         mList.add(
-            FaqsData(
+            RecyclerViewData(
                 "How to Login?",
                 "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise."
             )
         )
         mList.add(
-            FaqsData(
+            RecyclerViewData(
                 "How to Capture images?",
                 "eme is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise."
             )

@@ -22,10 +22,10 @@
     <string name="slate_description">Cacao bean which is unfissured and shows a purple-gray color on half or more of the surface exposed by the cut test.</string>
 
     <string name="color_description">Cacao beans which has undergone fermentation process of which the cotyledons are fissured with color ranging from brown, partly purple, total purple, and very dark brown.</string>
-    <string name="color_brown">Cacao beans that have light to dark brown coloration on its surface. These cacao bean is fully fermented and are used to make high-quality cacao products.</string>
-    <string name="color_partlypurple">Cacao beans that has a mix of purple and brown coloration. This cacao bean is likely not fully ripe or mature.</string>
-    <string name="color_totalpurple">Total purple beans are cacao beans that has a fully purple coloration. This cacao bean is not ripe or mature. </string>
-    <string name="color_verydarkbrown">Cacao beans that has a very dark brown or black coloration on its surface. This cacao bean is likely overfermented or fermented for too long. </string>
+    <string name="color_brown_description">Cacao beans that have light to dark brown coloration on its surface. These cacao bean is fully fermented and are used to make high-quality cacao products.</string>
+    <string name="color_partlypurple_description">Cacao beans that has a mix of purple and brown coloration. This cacao bean is likely not fully ripe or mature.</string>
+    <string name="color_totalpurple_description">Total purple beans are cacao beans that has a fully purple coloration. This cacao bean is not ripe or mature. </string>
+    <string name="color_verydarkbrown_description">Cacao beans that has a very dark brown or black coloration on its surface. This cacao bean is likely overfermented or fermented for too long. </string>
 
     <string name="fissuring_description">Fissuring is characterized by the opening up of large splits or rifts within the beans\' internal structure. Beans that are heavily fissured are generally more fermented than beans that have a cheesy or slate appearance when cut. </string>
     <string name="g1_description">Cacao beans with grade 1 fissuring are fully fermented cacao beans. Almost all of its surface is heavily fissured or has small branch-like lines. </string>
@@ -35,4 +35,48 @@
 
     <string name="bean_grade">Bean Grade: %s</string>
     <string name="date">Date: %s</string>
+
+    <string name="grade1a">
+        •  Highest quality\n
+        •  Large and uniform in \n\t\tsize\n
+        •  Few minor defects\n
+        •  Fully fermented and \n\t\t dried properly
+    </string>
+
+    <string name="grade1b">
+        •  Higher quality\n
+        •  Large but less\n\t\t uniform in size\n
+        •  Few minor defects\n
+        •  Fully fermented and \n\t\t dried properly
+    </string>
+
+    <string name="grade1c">
+        •  High quality\n
+        •  Size variance is\n\t\t greater\n
+        •  Few minor defects\n
+        •  Fully fermented and \n\t\t dried properly
+    </string>
+
+    <string name="grade2a">
+        •  Low quality\n
+        •  Smaller and uneven \n\t\t in size\n
+        •  More noticeable\n\t\t defects\n
+        •  Not fully fermented \n\t\t and dried properly
+    </string>
+
+    <string name="grade2b">
+        •  Lower quality\n
+        •  Much smaller and \n\t\t uneven in size\n
+        •  More noticeable\n\t\t defects\n
+        •  Not fully fermented \n\t\t and dried properly
+    </string>
+
+    <string name="grade2c">
+        •  Lowest quality\n
+        •  Size variance is greater\n
+        •  More noticeable\n\t\t defects\n
+        •  Not fully fermented \n\t\t and dried properly\n
+        •  Only suitable for\n\t\t industrial applications
+    </string>
+
 </resources>
