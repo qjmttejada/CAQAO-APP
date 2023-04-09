@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group>
-        <item
-            android:title="User"
-            >
-            <menu>
-
-                <item
-                    android:id="@+id/ProfileFragment"
-                    android:icon="@drawable/outline_account_circle_24"
-                    android:title="Profile"
-                    />
-            </menu>
-        </item>
-    </group>
 
     <group>
         <item

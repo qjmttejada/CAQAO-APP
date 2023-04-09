@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -34,7 +35,19 @@ class AssessFragment : Fragment() {
         binding?.apply {
             viewModel = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
-            assessBtn.setOnClickListener { assessCacaoBeans() }
+            assessBtn.setOnClickListener {
+                val assess = binding?.beanCountInputEditText?.text.toString()
+
+                if (assess.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please fill out all the fields.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else{
+                    assessCacaoBeans()
+                }
+            }
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
