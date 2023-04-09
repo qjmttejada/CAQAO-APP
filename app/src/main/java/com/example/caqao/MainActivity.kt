@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         bottomNavigation.show(R.id.homeFragment)
         bottomNavigation.add(MeowBottomNavigation.Model(R.id.galleryFragment , R.drawable.ic_photo))
         bottomNavigation.add(MeowBottomNavigation.Model(R.id.homeFragment, R.drawable.ic_focus))
-        bottomNavigation.add(MeowBottomNavigation.Model(R.id.analyticsFragment, R.drawable.ic_analytics))
+//        bottomNavigation.add(MeowBottomNavigation.Model(R.id.analyticsFragment, R.drawable.ic_analytics))
 
         bottomNavigation.setOnClickMenuListener {
             when (it.id) {

@@ -19,6 +19,7 @@
         app:cardElevation="4dp"
         app:cardCornerRadius="4dp"
         android:onClick="@{() -> clickListener.onClick(cacaoDetection)}"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +32,6 @@
                 android:layout_height="170dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
-                android:padding="2dp"
                 app:imageUrl="@{cacaoDetection.imgSrcUrl}"
                 tools:src="@tools:sample/backgrounds/scenic"
                 app:layout_constraintEnd_toEndOf="parent"

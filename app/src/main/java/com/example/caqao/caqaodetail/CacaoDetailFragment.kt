@@ -46,12 +46,14 @@ class CacaoDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-            }
-        })
-        val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
 
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner, object : OnBackPressedCallback(true){
+                override fun handleOnBackPressed() {
+                }
+            })
+
+        val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         view.visibility = View.GONE
     }
 
