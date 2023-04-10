@@ -99,10 +99,12 @@
     <string name="answer1">CAQAO or the Cacao Automated Quality Assessment using Object Detection is an app that allows you to capture cut test cacao beans and automatically assess its quality.</string>
     <string name="answer2">Cacao beans subjected to cut test or beans that are cut lengthwise are classified through three (3) classification groups: Defects, Color, and Fissuring. The classification is based on the International Standards for Cocoa Quality and Flavour (ISCQF). </string>
     <string name="answer3">Cacao beans are graded according to the bean size and proportion of defective beans to good beans. The grading is based on the Philippine National Standard for Cacao or cocoa beans - specification and grading (PNS/BAFS 58:;2019).</string>
-    <string name="answer4">Go to home page and click the \'+\' button in the lower right corner. Click the capture button. Allow the app to use the camera app and proceed to capture. To use the photo, click the check button. To retake the photo, click the cross button. </string>
-    <string name="answer5">Go to home page and click the \'+\' button in the lower right corner. Click the upload button. Allow the app to access the gallery app and select the photo.</string>
+    <string name="answer4">Go to home page and click the \'+\' button in the lower right corner. Click the capture button. Allow the app to use the camera app and proceed to capture. To use the photo, click the check button. To retake the photo, click the cross button.</string>
+    <string name="answer5">Go to home page and click the \'+\' button in the lower right corner. Click the upload button. Allow the app to access the gallery app and select the photo. </string>
     <string name="answer6">To create an account, click the Sign Up button. Fill the information fields including username and password. Click Sign Up button. Proceed to sign in.</string>
     <string name="answer7">To sign in, click the Sign In button. In the fields, use the username and password provided during sign up. Click Sign In.</string>
     <string name="answer8">To view capture images, navigate to gallery page by clicking the gallery icon in the bottom navigation.</string>
+    <string name="answer9">To assess the photo, click Assess button in the Quality Assess Capture page after capturing or uploading a photo. Enter bean count, then click Assess button.</string>
+    <string name="answer10">Bean size is the total number of cacao beans required per 100 grams.</string>
 
 </resources>

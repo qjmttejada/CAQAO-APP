@@ -30,7 +30,7 @@
                 <LinearLayout
                     android:layout_width="415dp"
                     android:layout_height="150dp"
-                    android:layout_marginTop="-1dp"
+                    android:layout_marginTop="-5dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/rounded_rectangle_down"
                     app:layout_constraintBottom_toTopOf="@+id/discover"
@@ -45,7 +45,7 @@
                     android:layout_width="156dp"
                     android:layout_height="59dp"
                     android:layout_marginStart="50dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:src="@drawable/caqao_text_logo_monoyellow"
                     app:layout_constraintStart_toStartOf="parent"

@@ -30,7 +30,7 @@ class FAQFragment : Fragment() {
         adapter = RecyclerViewAdapter(mList)
         recyclerView.adapter = adapter
 
-        val margin = resources.getDimensionPixelSize(R.dimen.fab_margin)
+        val margin = resources.getDimensionPixelSize(R.dimen.fab_margin1)
         val decorator = LastItemMarginDecorator(margin)
         recyclerView.addItemDecoration(decorator)
 
@@ -60,16 +60,11 @@ class FAQFragment : Fragment() {
         )
         mList.add(
             RecyclerViewData(
-                "How to capture images?",
-                context?.getString(R.string.answer4) ?: String()
+                "What is Bean size?",
+                context?.getString(R.string.answer10) ?: String()
             )
         )
-        mList.add(
-            RecyclerViewData(
-                "How to upload images?",
-                context?.getString(R.string.answer5) ?: String()
-            )
-        )
+
         mList.add(
             RecyclerViewData(
                 "How to sign up?",
@@ -84,10 +79,29 @@ class FAQFragment : Fragment() {
         )
         mList.add(
             RecyclerViewData(
+                "How to capture images?",
+                context?.getString(R.string.answer4) ?: String()
+            )
+        )
+        mList.add(
+            RecyclerViewData(
+                "How to upload images?",
+                context?.getString(R.string.answer5) ?: String()
+            )
+        )
+        mList.add(
+            RecyclerViewData(
+                "How to assess images?",
+                context?.getString(R.string.answer9) ?: String()
+            )
+        )
+        mList.add(
+            RecyclerViewData(
                 "How to view captured images?",
                 context?.getString(R.string.answer8) ?: String()
             )
         )
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
