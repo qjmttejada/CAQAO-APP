@@ -87,6 +87,11 @@ class HomeFragment : Fragment() {
                 .replace(R.id.nav_host_fragment, FissuringFragment()).commit()
         }
 
+        fragmentBinding.beansizeCard.setOnClickListener { view : View ->
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, BeanGradeFragment()).commit()
+        }
+
         val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         view.visibility = View.VISIBLE
 
