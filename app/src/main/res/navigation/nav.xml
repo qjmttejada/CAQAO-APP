@@ -15,6 +15,9 @@
         android:name="com.example.caqao.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.caqao.database.RegisterEntity" />
         <action
             android:id="@+id/action_registerFragment_to_loginFragment2"
             app:destination="@id/loginFragment" />

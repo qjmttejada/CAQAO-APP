@@ -72,22 +72,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             when (it.id) {
                 R.id.galleryFragment -> {
                     replaceFragment(GalleryFragment.newInstance())
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.nav_host_fragment, GalleryFragment()).commit()
                     supportActionBar!!.title = "Gallery"
                 }
                 R.id.homeFragment -> {
                     replaceFragment(HomeFragment.newInstance())
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.nav_host_fragment, HomeFragment()).commit()
                     supportActionBar!!.title = "Home"
                 }
-//                R.id.analyticsFragment -> {
-////                    replaceFragment(AnalyticsFragment.newInstance())
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.nav_host_fragment, AnalyticsFragment()).commit()
-//                    supportActionBar!!.title = "Graph"
-//                }
+                R.id.analyticsFragment -> {
+                    replaceFragment(AnalyticsFragment.newInstance())
+                    supportActionBar!!.title = "Analytics"
+                }
 
                 else -> {
                     replaceFragment(HomeFragment.newInstance())
@@ -101,12 +95,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 R.id.homeFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, HomeFragment()).commit()
-                    supportActionBar!!.title = "Profile"
+                    supportActionBar!!.title = "Home"
                 }
                 R.id.AboutUsFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, AboutUsFragment()).commit()
-//                    supportActionBar!!.title = "About Us"
                 }
                 R.id.FAQFragment -> {
                     supportFragmentManager.beginTransaction()
