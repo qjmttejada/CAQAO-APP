@@ -15,6 +15,7 @@
     <string name="close_nav">Close Navigation Drawer</string>
     <string name="welcome_msg">Improve quality assessment of dried fermented cacao beans using CAQAO. Assess quality of cacao beans in batches and learn more about the overall quality of cacao beans. </string>
 
+    <!-- card descriptions -->
     <string name="defects_description">Defective beans are cacao beans that are mouldy, insect-infested, slaty, and germinated. If a bean presents two or more defects, the defect that counts as the worse condition is the one that appears first in the list. The list is in descending order of importance; with mouldy having the highest importance and germinated having the lowest importance. </string>
     <string name="mouldy_description">Mold present on parts of the cacao bean which is visible to the naked eye.</string>
     <string name="germinated_description">Shell of the cacao which have been pierced, slit or broken by a growth of the seed germ or presence of radicle.</string>
@@ -32,12 +33,14 @@
     <string name="g2_description">Cacao beans with grade 2 fissuring are partially fermented cacao beans. Fissures have formed on its surface but is still smooth in some areas. </string>
     <string name="g3_description">Cacao beans with grade 3 fissuring are slightly fermented cacao beans. It is lightly fissured or has a few branch-like lines on its surface. </string>
     <string name="g4_description">Cacao beans with grade 4 fissuring are unfermented and is characterized with a cut bean surface that is relatively smooth. </string>
+    <!-- end of card descriptions -->
 
     <string name="bean_grade">Bean Grade: %s</string>
     <string name="date">Date: %s</string>
 
     <string name="beangrading_description">Cacao bean grading is the classification of cacao beans according to bean size and the proportion of defective beans to good beans.</string>
 
+    <!-- Results legends -->
     <string name="grade1a">
         •  Highest quality\n
         •  Large and uniform in \n\t\tsize\n
@@ -78,9 +81,11 @@
         •  Smaller and uneven \n\t\t in size\n
         •  More noticeable\n\t\t defects\n
         •  Imperfect or uneven\n\t\t fermentation\n
-        •  Only suitable for\n\t\t industrial applications
+        •  For industrial use only
     </string>
+    <!-- end of results legends -->
 
+    <!-- BeanGradeFragment Legends-->
     <string name="beangrade_description">Cacao bean grading is the classification of cacao beans according to bean size and the proportion of defective beans to good beans.</string>
     <string name="beangrade1a">Highest quality, large and uniform in size, few minor defects, fully fermented and dried properly.</string>
     <string name="beangrade1b">Higher quality, large but less uniform in size, few minor defects, fully fermented and dried properly.</string>
@@ -88,5 +93,16 @@
     <string name="beangrade2a">Low quality, large and uniform in size, more noticeable defects, imperfect or uneven fermentation.</string>
     <string name="beangrade2b">Lower quality, large but less uniform in size, imperfect or uneven fermentation.</string>
     <string name="beangrade2c">Lowest quality, smaller and uneven in size, imperfect or uneven fermentation, only suitable for industrial applications.</string>
+    <!-- end of beangradefragment legends -->
+
+    <!-- FAQ answers -->
+    <string name="answer1">CAQAO or the Cacao Automated Quality Assessment using Object Detection is an app that allows you to capture cut test cacao beans and automatically assess its quality.</string>
+    <string name="answer2">Cacao beans subjected to cut test or beans that are cut lengthwise are classified through three (3) classification groups: Defects, Color, and Fissuring. The classification is based on the International Standards for Cocoa Quality and Flavour (ISCQF). </string>
+    <string name="answer3">Cacao beans are graded according to the bean size and proportion of defective beans to good beans. The grading is based on the Philippine National Standard for Cacao or cocoa beans - specification and grading (PNS/BAFS 58:;2019).</string>
+    <string name="answer4">Go to home page and click the \'+\' button in the lower right corner. Click the capture button. Allow the app to use the camera app and proceed to capture. To use the photo, click the check button. To retake the photo, click the cross button. </string>
+    <string name="answer5">Go to home page and click the \'+\' button in the lower right corner. Click the upload button. Allow the app to access the gallery app and select the photo.</string>
+    <string name="answer6">To create an account, click the Sign Up button. Fill the information fields including username and password. Click Sign Up button. Proceed to sign in.</string>
+    <string name="answer7">To sign in, click the Sign In button. In the fields, use the username and password provided during sign up. Click Sign In.</string>
+    <string name="answer8">To view capture images, navigate to gallery page by clicking the gallery icon in the bottom navigation.</string>
 
 </resources>

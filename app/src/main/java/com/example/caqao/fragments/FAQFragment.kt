@@ -30,6 +30,12 @@ class FAQFragment : Fragment() {
         adapter = RecyclerViewAdapter(mList)
         recyclerView.adapter = adapter
 
+        val margin = resources.getDimensionPixelSize(R.dimen.fab_margin)
+        val decorator = LastItemMarginDecorator(margin)
+        recyclerView.addItemDecoration(decorator)
+
+
+
         return view
     }
 
@@ -37,19 +43,49 @@ class FAQFragment : Fragment() {
         mList.add(
             RecyclerViewData(
                 "What is CAQAO?",
-                "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible."
+                context?.getString(R.string.answer1) ?: String()
             )
         )
         mList.add(
             RecyclerViewData(
-                "How to Login?",
-                "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise."
+                "How are cacao beans classified?",
+                context?.getString(R.string.answer2) ?: String()
             )
         )
         mList.add(
             RecyclerViewData(
-                "How to Capture images?",
-                "eme is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise."
+                "How are cacao beans graded?",
+                context?.getString(R.string.answer3) ?: String()
+            )
+        )
+        mList.add(
+            RecyclerViewData(
+                "How to capture images?",
+                context?.getString(R.string.answer4) ?: String()
+            )
+        )
+        mList.add(
+            RecyclerViewData(
+                "How to upload images?",
+                context?.getString(R.string.answer5) ?: String()
+            )
+        )
+        mList.add(
+            RecyclerViewData(
+                "How to sign up?",
+                context?.getString(R.string.answer6) ?: String()
+            )
+        )
+        mList.add(
+            RecyclerViewData(
+                "How to sign in?",
+                context?.getString(R.string.answer7) ?: String()
+            )
+        )
+        mList.add(
+            RecyclerViewData(
+                "How to view captured images?",
+                context?.getString(R.string.answer8) ?: String()
             )
         )
     }
