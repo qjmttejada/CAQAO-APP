@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
@@ -46,8 +47,10 @@ class AssessFragment : Fragment() {
             }
         })
 
+
         val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         botnav.visibility = View.GONE
+        (activity as AppCompatActivity).supportActionBar?.title = "Assess Capture"
     }
 
     fun assessCacaoBeans() {
@@ -74,4 +77,6 @@ class AssessFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+
+
 }
