@@ -5,12 +5,15 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
-private const val BASE_URL = "http://192.168.55.102:5000"
+private const val BASE_URL = "http://192.168.68.32:5000"
 
 val client = OkHttpClient.Builder()
     .connectTimeout(30, TimeUnit.SECONDS)
@@ -36,28 +39,17 @@ interface CacaoApiService {
         @Part("beanSize") beanSize: Int,
     ): CacaoDetection
 
+    @Multipart
+    @POST("validate_image")
+    suspend fun validateImage(
+        @Part image: MultipartBody.Part,
+    ): ImageValidationStatus
+
     @POST("save_results")
     @FormUrlEncoded
     suspend fun saveDetectionResults(
-        @Header("Authorization") authorization: String,
         @Field("imgSrcUrl") imgSrcUrl: String
     )
-    @POST("create_user")
-    @FormUrlEncoded
-    suspend fun registerUser(
-        @Field("firstName") firstName: String,
-        @Field("lastName") lastName: String,
-        @Field("email") email: String,
-        @Field("username") username: String,
-        @Field("password") password: String
-    )
-
-    @POST("login")
-    @FormUrlEncoded
-    suspend fun loginUser(
-        @Field("username") username: String,
-        @Field("password") password: String
-    ): UserToken
 
     @GET("detections")
     suspend fun getDetections(): List<CacaoDetection>
@@ -67,6 +59,7 @@ interface CacaoApiService {
     suspend fun getDetectionWithId(
         @Field("cacaoDetectionId") cacaoDetectionId: Int,
     ): CacaoDetection
+
 }
 
 object CacaoApi {

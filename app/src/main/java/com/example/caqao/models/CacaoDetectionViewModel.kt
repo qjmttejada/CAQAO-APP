@@ -4,27 +4,24 @@ import android.app.Application
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
+import android.media.Image
 import android.net.Uri
 import android.util.Log
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.*
 import com.example.caqao.MainActivity
 import com.example.caqao.network.CacaoApi
 import com.example.caqao.network.CacaoDetection
-import com.example.caqao.network.UserToken
-import kotlinx.coroutines.delay
+import com.example.caqao.network.ImageValidationStatus
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.io.FileOutputStream
-import java.util.concurrent.Executors
 
 enum class CaqaoApiStatus { LOADING, ERROR, DONE }
-
-var USER_TOKEN: String? = null
-var USER_TOKEN_STATUS: Int? = null
 
 class CacaoDetectionViewModel: ViewModel() {
 
@@ -39,22 +36,17 @@ class CacaoDetectionViewModel: ViewModel() {
     val cacaoDetection: LiveData<CacaoDetection>
         get() = _cacaoDetection
 
-    private val _userToken = MutableLiveData<UserToken>()
-    val userToken: LiveData<UserToken>
-        get() = _userToken
-
-    private val _detectionLen = MutableLiveData<String>()
-    val detectionLen: LiveData<String> = _detectionLen
-
     private val _detections = MutableLiveData<List<CacaoDetection>>()
     val detections: LiveData<List<CacaoDetection>> = _detections
+
+    private val _imageValidationStatus = MutableLiveData<ImageValidationStatus>()
+    val imageValidationStatus: LiveData<ImageValidationStatus> = _imageValidationStatus
 
     private val _detectionStatus = MutableLiveData<String>()
     val detectionStatus: LiveData<String> = _detectionStatus
 
     init {
         resetCacaoDetection()
-        resetUserToken()
     }
 
     fun selectImage(uri: Uri) {
@@ -78,8 +70,17 @@ class CacaoDetectionViewModel: ViewModel() {
             try {
                 _cacaoDetection.value = CacaoApi.retrofitService.assess(imageFilePart, beanSize)
                 Log.d("BeanGrade", "BeanGrade: ${_cacaoDetection.value!!.beanGrade}")
+
+                if (_cacaoDetection.value!!.beanGrade == "--") {
+                    Toast.makeText(context, "No Cacao Beans Detected!", Toast.LENGTH_SHORT).show()
+                }
+
                 _status.value = CaqaoApiStatus.DONE
+            } catch (e: retrofit2.HttpException) {
+                Log.d("HTTPError", "Error: ${e}")
+                _status.value = CaqaoApiStatus.ERROR
             } catch (e: Exception) {
+                Log.d("AssessmentFailed", "Error: ${e}")
                 _status.value = CaqaoApiStatus.ERROR
             }
         }
@@ -89,7 +90,6 @@ class CacaoDetectionViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 CacaoApi.retrofitService.saveDetectionResults(
-                    "Bearer ${USER_TOKEN}",
                     _cacaoDetection.value?.imgSrcUrl.toString())
             } catch (e: Exception) {
                 Log.d("Saving Results Failed", "Error: ${e}")
@@ -103,36 +103,6 @@ class CacaoDetectionViewModel: ViewModel() {
             0, 0, 0, 0, 0, 0, "--", "--")
     }
 
-    fun registerUser(firstName: String, lastName: String, email: String, username: String,
-        password: String) {
-        viewModelScope.launch {
-            try {
-                CacaoApi.retrofitService.registerUser(firstName, lastName, email, username, password)
-                // Log.d("ImgSrcUrl", "${_cacaoDetection.value?.imgSrcUrl.toString()}")
-            } catch (e: Exception) {
-                Log.d("RegistrationFailed", "Error: ${e}")
-            }
-        }
-    }
-
-    fun loginUser(username: String, password: String): Boolean {
-
-        viewModelScope.launch {
-            try {
-                _userToken.value = CacaoApi.retrofitService.loginUser(username, password)
-                USER_TOKEN = _userToken.value!!.accessToken.toString()
-                USER_TOKEN_STATUS = _userToken.value!!.status
-                delay(2000)
-                Log.d("UserToken", "Token: ${USER_TOKEN}")
-                Log.d("UserTokenStatus", "${_userToken.value!!.status}")
-            } catch (e: Exception) {
-                Log.d("LoginFailed", "Error: ${e}")
-            }
-        }
-
-        return USER_TOKEN_STATUS == 200
-    }
-
     fun getCacaoDetections() {
         viewModelScope.launch {
             try {
@@ -144,19 +114,38 @@ class CacaoDetectionViewModel: ViewModel() {
         }
     }
 
-    fun resetUserToken() {
-        _userToken.value = UserToken("--", 401)
+    fun validateImage(context: Context, contentResolver: ContentResolver) {
+        val filesDir = context.filesDir
+        val file = File(filesDir, "image.jpg")
+
+        val inputSteam = _selectedImage.value?.let { contentResolver.openInputStream(it) }
+        val outputStream = FileOutputStream(file)
+        inputSteam!!.copyTo(outputStream)
+
+        val imageFileRequestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val imageFilePart  = MultipartBody.Part.createFormData("image", file.name,
+            imageFileRequestBody)
+
+        viewModelScope.launch {
+            try {
+                // TODO: send image to the server and check if the image contains cacao beans or not
+                _imageValidationStatus.value = CacaoApi.retrofitService.validateImage(imageFilePart)
+                val response = _imageValidationStatus.value
+                if (response?.status == 200) {
+                    Log.d("ImageValidationSuccess",
+                        "HTTP status code: ${response.status} Message: ${response.message}")
+                }
+                else {
+                    Log.d("ImageValidationFailed",
+                        "HTTP status code: ${response?.status} Message: ${response?.message}")
+                    Toast.makeText(context, "${response?.message}", Toast.LENGTH_LONG).show()
+                }
+            } catch (e: Exception) {
+                Log.d("ImageValidationFailed", "Error: ${e}")
+            }
+        }
+
     }
 
-    private val _navigateToCacaoDetail = MutableLiveData<Int?>()
-    val navigateToCacaoDetail
-        get() = _navigateToCacaoDetail
 
-    fun onCacaoDetectionClicked(id: Int) {
-        _navigateToCacaoDetail.value = id
-    }
-
-    fun onSleepDetailNavigated() {
-        _navigateToCacaoDetail.value = null
-    }
 }

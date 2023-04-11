@@ -1,19 +1,24 @@
 package com.example.caqao
 
 import android.graphics.Color
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.caqao.models.CaqaoApiStatus
 import com.example.caqao.network.CacaoDetection
+import com.example.caqao.network.ImageValidationStatus
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -40,13 +45,61 @@ fun bindStatus(statusImageView: ImageView,
     }
 }
 
+@BindingAdapter("buttonStatus")
+fun bindStatusButton(button: Button, cacaoDetection: CacaoDetection?) {
+    when (cacaoDetection?.beanGrade) {
+        "--" -> {
+            button.isEnabled =  false
+        }
+        else -> {
+            button.isEnabled = true
+        }
+    }
+}
+@BindingAdapter("imageValidationStatusTextInputLayout")
+fun bindImageValidationStatusTextInputLayout(view: TextInputLayout,
+                                               imageValidationStatus: ImageValidationStatus?) {
+    when (imageValidationStatus?.status) {
+        200 -> {
+            view.visibility =  View.VISIBLE
+        }
+        else -> {
+            view.visibility = View.GONE
+        }
+    }
+}
+
+@BindingAdapter("imageValidationStatusTextView")
+fun bindImageValidationStatusTextView(view: TextView,
+                                      imageValidationStatus: ImageValidationStatus?) {
+    when (imageValidationStatus?.status) {
+        200 -> {
+            view.visibility =  View.VISIBLE
+        }
+        else -> {
+            view.visibility = View.GONE
+        }
+    }
+}
+
+@BindingAdapter("imageValidationStatusButton")
+fun bindImageValidationStatusButton(view: Button, imageValidationStatus: ImageValidationStatus?) {
+    when (imageValidationStatus?.status) {
+        200 -> {
+            view.visibility =  View.VISIBLE
+        }
+        else -> {
+            view.visibility = View.GONE
+        }
+    }
+}
+
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView,
                      data: List<CacaoDetection>?) {
 
     val adapter = recyclerView.adapter as CacaoGridAdapter
     adapter.submitList(data)
-
 }
 
 @BindingAdapter("cacaoColorBarChart")

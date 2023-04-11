@@ -122,6 +122,19 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
+                    android:id="@+id/legendBeanGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="55dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Defect Classification"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titleCacaoDefectBarChart"/>
+
+                <TextView
                     android:id="@+id/titleCacaoDefectBarChart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

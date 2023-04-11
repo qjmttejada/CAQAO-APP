@@ -41,6 +41,8 @@ class AssessFragment : Fragment() {
             }
         }
 
+        sharedViewModel.validateImage(requireContext(), requireContext().contentResolver)
+
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
             }
@@ -49,6 +51,8 @@ class AssessFragment : Fragment() {
         val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         botnav.visibility = View.GONE
     }
+
+
 
     fun assessCacaoBeans() {
         when {
