@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,133 +7,157 @@
     tools:context=".WelcomeFragment"
     android:background="@color/eggshell">
 
-    <ImageView
-        android:id="@+id/caqao_logo_dark"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_180sdp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:src="@drawable/caqao_logo_dark" />
 
-    <ImageView
-        android:id="@+id/caqao_text_logo_dark"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_90sdp"
-        android:layout_below="@+id/caqao_logo_dark"
-        android:layout_marginTop="-30dp"
-        android:src="@drawable/caqao_text_logo_dark"/>
-
-    <TextView
-        android:id="@+id/caqao_txt"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
-        android:layout_below="@+id/caqao_text_logo_dark"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="@dimen/_31sdp"
-        android:layout_marginRight="@dimen/_31sdp"
-        android:fontFamily="@font/lato"
-        android:text="Cacao Automated Quality Assessment using Object Detection"
-        android:textAlignment="center"
-        android:textColor="@color/american_bronze"
-        android:textSize="@dimen/_12sdp"
-        android:layout_marginTop="-10dp"
-        />
-
-    <ImageView
-        android:id="@+id/welcome_bg"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_260sdp"
-        android:layout_below="@+id/caqao_txt"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:src="@drawable/welcome" />
-
-    <ScrollView
-        android:id="@+id/welcome_scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/caqao_txt"
-        android:layout_marginTop="@dimen/_50sdp"
-        >
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/welcome_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="0dp"
             >
 
-            <TextView
-                android:id="@+id/welcome_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:layout_marginLeft="@dimen/_31sdp"
-                android:fontFamily="@font/lato_bold"
-                android:text="Welcome"
-                android:textColor="#000000"
-                android:textSize="@dimen/_28sdp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
+            <ImageView
+                android:id="@+id/caqao_logo_dark"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/caqao_logo_dark"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/caqao_text_logo_dark"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_below="@+id/caqao_logo_dark"
+                android:layout_marginTop="-30dp"
+                android:src="@drawable/caqao_text_logo_dark"
+                app:layout_constraintTop_toBottomOf="@id/caqao_logo_dark"/>
 
             <TextView
-                android:id="@+id/welcome_msg"
+                android:id="@+id/caqao_txt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_below="@+id/caqao_text_logo_dark"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentLeft="true"
                 android:layout_marginLeft="@dimen/_31sdp"
-                android:layout_marginTop="5dp"
                 android:layout_marginRight="@dimen/_31sdp"
                 android:fontFamily="@font/lato"
-                android:text="@string/welcome_msg"
-                android:textColor="#000000"
-                android:textSize="@dimen/_14sdp"
-                app:layout_constraintTop_toBottomOf="@+id/welcome_txt"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/signIn_btn"
-                android:layout_width="@dimen/_115sdp"
-                android:layout_height="@dimen/_47sdp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_18sdp"
-                android:layout_marginBottom="@dimen/_31sdp"
-                android:background="@drawable/sign_in_btn"
-                android:fontFamily="@font/lato_bold"
-                android:text="Sign In"
-                android:textAllCaps="false"
-                android:textColor="@color/saffron"
-                android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@+id/welcome_msg"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/signUp_btn"
-                android:layout_width="@dimen/_115sdp"
-                android:layout_height="@dimen/_47sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/_18sdp"
-                android:layout_marginBottom="@dimen/_31sdp"
-                android:layout_marginEnd="@dimen/_31sdp"
-                android:background="@drawable/sign_up_btn"
-                android:fontFamily="@font/lato_bold"
-                android:text="Sign Up"
-                android:textAllCaps="false"
+                android:text="Cacao Automated Quality Assessment using Object Detection"
+                android:textAlignment="center"
                 android:textColor="@color/american_bronze"
-                android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@+id/welcome_msg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="-10dp"
+                app:layout_constraintTop_toBottomOf="@id/caqao_text_logo_dark"
+                />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </ScrollView>
 
-</RelativeLayout>
+
+        <ImageView
+            android:id="@+id/welcome_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_260sdp"
+            android:layout_below="@+id/caqao_txt"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="540dp"
+            android:src="@drawable/welcome" />
+
+        <ScrollView
+            android:id="@+id/welcome_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caqao_txt"
+            android:layout_marginTop="@dimen/_310sdp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/welcome_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/welcome_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_130sdp"
+                    android:layout_marginLeft="@dimen/_31sdp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Welcome"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_28sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/welcome_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_31sdp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/_31sdp"
+                    android:fontFamily="@font/lato"
+                    android:text="@string/welcome_msg"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/welcome_txt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/signIn_btn"
+                    android:layout_width="@dimen/_115sdp"
+                    android:layout_height="@dimen/_47sdp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginBottom="@dimen/_31sdp"
+                    android:background="@drawable/sign_in_btn"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Sign In"
+                    android:textAllCaps="false"
+                    android:textColor="@color/saffron"
+                    android:textSize="22sp"
+                    app:layout_constraintTop_toBottomOf="@+id/welcome_msg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/signUp_btn"
+                    android:layout_width="@dimen/_115sdp"
+                    android:layout_height="@dimen/_47sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginBottom="@dimen/_31sdp"
+                    android:layout_marginEnd="@dimen/_31sdp"
+                    android:background="@drawable/sign_up_btn"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Sign Up"
+                    android:textAllCaps="false"
+                    android:textColor="@color/american_bronze"
+                    android:textSize="22sp"
+                    app:layout_constraintTop_toBottomOf="@+id/welcome_msg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+
+
+    </RelativeLayout>
+</ScrollView>
