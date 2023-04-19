@@ -26,8 +26,7 @@ import com.example.caqao.databinding.ActivityMainBinding
 import com.example.caqao.fragments.*
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.ui.setupWithNavController
-import com.example.caqao.models.USER_TOKEN
-import com.example.caqao.models.USER_TOKEN_STATUS
+
 
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
@@ -141,8 +140,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     fun logout (menuItem: MenuItem) {
         startActivity(Intent(applicationContext, MainActivity2::class.java))
-        USER_TOKEN = null
-        USER_TOKEN_STATUS = null
         finish()
     }
 }

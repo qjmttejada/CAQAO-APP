@@ -27,7 +27,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
         </LinearLayout>
 
 
@@ -42,6 +41,7 @@
             tools:srcCompat="@tools:sample/avatars"
             android:src="@{viewModel.selectedImage}"
             />
+
         <TextView
             android:id="@+id/qaCapture"
             android:layout_width="wrap_content"
@@ -58,6 +58,23 @@
             app:layout_constraintTop_toBottomOf="@+id/assessRoundedRectangle" />
 
         <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lato"
+            android:text="Image must contain cacao\nbeans in a guillotine."
+            android:textColor="@color/red"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qaCapture"
+            app:imageValidationStatusErrorTextView="@{viewModel.imageValidationStatus}"/>
+
+        <TextView
             android:id="@+id/title_beanCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +85,8 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/qaCapture" />
+            app:layout_constraintTop_toBottomOf="@+id/qaCapture"
+            app:imageValidationStatusTextView="@{viewModel.imageValidationStatus}"/>
 
 
         <TextView
@@ -83,7 +101,8 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@id/title_beanCount"
-            app:layout_constraintTop_toBottomOf="@+id/qaCapture" />
+            app:layout_constraintTop_toBottomOf="@+id/qaCapture"
+            app:imageValidationStatusTextView="@{viewModel.imageValidationStatus}"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/beanCountInputLayout"
@@ -101,7 +120,9 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/subtitle_beanCount">
+             app:layout_constraintTop_toBottomOf="@+id/title_beanCount"
+            app:imageValidationStatusTextInputLayout="@{viewModel.imageValidationStatus}">
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/beanCountInputEditText"
@@ -125,7 +146,19 @@
             android:text="Assess"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beanCountInputLayout"/>
+            app:layout_constraintTop_toBottomOf="@+id/beanCountInputLayout"
+            app:imageValidationStatusButton="@{viewModel.imageValidationStatus}"/>
+
+        <Button
+            android:id="@+id/capture_again_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Capture/Select Image Again"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/errorMessage"
+            app:imageValidationStatusButtonError="@{viewModel.imageValidationStatus}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
