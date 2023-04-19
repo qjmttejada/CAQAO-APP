@@ -1,16 +1,11 @@
 package com.example.caqao.models
 
-import android.app.Application
 import android.content.ContentResolver
 import android.content.Context
-import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import android.util.Log
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.*
-import com.example.caqao.MainActivity
 import com.example.caqao.network.CacaoApi
 import com.example.caqao.network.CacaoDetection
 import com.example.caqao.network.ImageValidationStatus
@@ -49,7 +44,7 @@ class CacaoDetectionViewModel: ViewModel() {
         resetCacaoDetection()
     }
 
-    fun selectImage(uri: Uri) {
+    fun selectImage(uri: Uri?) {
         _selectedImage.value = uri
     }
 

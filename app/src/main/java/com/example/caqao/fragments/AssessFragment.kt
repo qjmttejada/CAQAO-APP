@@ -1,19 +1,39 @@
 package com.example.caqao.fragments
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.provider.Settings
 import android.text.TextUtils
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
+import androidx.core.content.FileProvider.getUriForFile
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
 import com.example.caqao.databinding.FragmentAssessBinding
 import com.example.caqao.models.CacaoDetectionViewModel
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class AssessFragment : Fragment() {
@@ -39,6 +59,19 @@ class AssessFragment : Fragment() {
             assessBtn.setOnClickListener {
                 assessCacaoBeans()
             }
+            captureAgainBtn.setOnClickListener {
+               //  sharedViewModel.selectImage(null)
+//                cameraCheckPermission()
+                Toast.makeText(
+                    requireContext(),
+                    "Invalid Image: Capture Image Again",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+             requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment, HomeFragment()).commit()
+                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+            }
         }
 
         sharedViewModel.validateImage(requireContext(), requireContext().contentResolver)
@@ -50,8 +83,8 @@ class AssessFragment : Fragment() {
 
         val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         botnav.visibility = View.GONE
+        (activity as AppCompatActivity).supportActionBar?.title = "Assess Capture"
     }
-
 
 
     fun assessCacaoBeans() {
@@ -74,8 +107,16 @@ class AssessFragment : Fragment() {
         }
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
     }
+
+    companion object {
+        private const val CAMERA_REQUEST_CODE = 1
+        private const val GALLERY_REQUEST_CODE = 2
+    }
+
+
 }

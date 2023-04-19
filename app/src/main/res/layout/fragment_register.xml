@@ -47,7 +47,7 @@
             android:layout_marginStart="@dimen/_23sdp"
             android:layout_marginTop="6dp"
             android:fontFamily="@font/lato"
-            android:text="Sign Up Message Here"
+            android:text="Enter your information to get started."
             android:textColor="@color/american_bronze"
             android:textSize="@dimen/_13sdp" />
 

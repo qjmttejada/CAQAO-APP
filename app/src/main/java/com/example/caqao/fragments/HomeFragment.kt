@@ -1,16 +1,11 @@
 package com.example.caqao.fragments
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Matrix
-import android.media.ExifInterface
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
@@ -21,13 +16,9 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
 import com.example.caqao.databinding.FragmentHomeBinding
@@ -42,7 +33,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
 import java.io.File
 import java.io.IOException
-import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -85,6 +75,11 @@ class HomeFragment : Fragment() {
             //view.findNavController().navigate(R.id.action_homeFragment_to_fissuringFragment)
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment, FissuringFragment()).commit()
+        }
+
+        fragmentBinding.beansizeCard.setOnClickListener { view : View ->
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, BeanGradeFragment()).commit()
         }
 
         val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
@@ -155,18 +150,19 @@ class HomeFragment : Fragment() {
             ).onSameThread().check()
     }
 
+    @SuppressLint("LongLogTag")
     private fun camera() {
 
         val filesDir = requireContext().cacheDir
         val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        val fileName = "IMG_$timeStamp.jpg"
+        val fileName = "IMG_$timeStamp"
 
         try {
             val imageFile = File.createTempFile(fileName, ".jpg", filesDir)
             val imageUri: Uri = FileProvider.getUriForFile(requireContext(),
                 "com.example.caqao.fileprovider", imageFile)
             sharedViewModel.selectImage(imageUri)
-
+            Log.d("CaptureImageSuccess", "${imageUri}")
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)

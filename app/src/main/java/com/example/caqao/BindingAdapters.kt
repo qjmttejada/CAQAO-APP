@@ -82,6 +82,20 @@ fun bindImageValidationStatusTextView(view: TextView,
     }
 }
 
+
+@BindingAdapter("imageValidationStatusErrorTextView")
+fun bindImageValidationStatusErrorTextView(view: TextView,
+                                      imageValidationStatus: ImageValidationStatus?) {
+    when (imageValidationStatus?.status) {
+        200 -> {
+            view.visibility =  View.GONE
+        }
+        else -> {
+            view.visibility = View.VISIBLE
+        }
+    }
+}
+
 @BindingAdapter("imageValidationStatusButton")
 fun bindImageValidationStatusButton(view: Button, imageValidationStatus: ImageValidationStatus?) {
     when (imageValidationStatus?.status) {
@@ -90,6 +104,18 @@ fun bindImageValidationStatusButton(view: Button, imageValidationStatus: ImageVa
         }
         else -> {
             view.visibility = View.GONE
+        }
+    }
+}
+
+@BindingAdapter("imageValidationStatusButtonError")
+fun bindImageValidationStatusButtonError(view: Button, imageValidationStatus: ImageValidationStatus?) {
+    when (imageValidationStatus?.status) {
+        200 -> {
+            view.visibility =  View.GONE
+        }
+        else -> {
+            view.visibility = View.VISIBLE
         }
     }
 }
