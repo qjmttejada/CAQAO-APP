@@ -70,13 +70,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         bottomNavigation.setOnClickMenuListener {
             when (it.id) {
-                R.id.galleryFragment -> {
-                    replaceFragment(GalleryFragment.newInstance())
-                    supportActionBar!!.title = "Gallery"
-                }
                 R.id.homeFragment -> {
                     replaceFragment(HomeFragment.newInstance())
                     supportActionBar!!.title = "Home"
+                }
+                R.id.galleryFragment -> {
+                    replaceFragment(GalleryFragment.newInstance())
+                    supportActionBar!!.title = "Gallery"
                 }
                 R.id.analyticsFragment -> {
                     replaceFragment(AnalyticsFragment.newInstance())
