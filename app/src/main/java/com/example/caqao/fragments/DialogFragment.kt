@@ -35,6 +35,14 @@ class DialogFragment : DialogFragment() {
             11 -> inflater.inflate(R.layout.fragment_g3_dialog, container, false)
             12 -> inflater.inflate(R.layout.fragment_g4_dialog, container, false)
 
+            //bean cutting steps
+            13 -> inflater.inflate(R.layout.step1_dialog, container, false)
+            14 -> inflater.inflate(R.layout.step2_dialog, container, false)
+            15 -> inflater.inflate(R.layout.step3_dialog, container, false)
+            16 -> inflater.inflate(R.layout.step4_dialog, container, false)
+            17 -> inflater.inflate(R.layout.step5_dialog, container, false)
+            18 -> inflater.inflate(R.layout.step6_dialog, container, false)
+            19 -> inflater.inflate(R.layout.step7_dialog, container, false)
 
             else -> throw IllegalArgumentException("Invalid layout ID")
         }
