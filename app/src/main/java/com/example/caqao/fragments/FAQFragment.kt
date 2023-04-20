@@ -31,7 +31,7 @@ class FAQFragment : Fragment() {
         recyclerView.adapter = adapter
 
         val margin = resources.getDimensionPixelSize(R.dimen.fab_margin1)
-        val decorator = LastItemMarginDecorator(margin)
+        val decorator = LastItemBottomMarginDecorator(margin)
         recyclerView.addItemDecoration(decorator)
 
 
