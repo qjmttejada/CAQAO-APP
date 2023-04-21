@@ -41,7 +41,7 @@ class AssessFragment : Fragment() {
     private var binding: FragmentAssessBinding? = null
     private val sharedViewModel: CacaoDetectionViewModel by activityViewModels()
 
-    override fun onCreateView(
+        override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {

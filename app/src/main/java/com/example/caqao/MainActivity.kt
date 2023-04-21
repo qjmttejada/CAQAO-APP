@@ -61,26 +61,28 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         toggle.syncState()
 
         // bottom nav
+//        addFragment(HomeFragment.newInstance())
         bottomNavigation = findViewById(R.id.bottomNavigation)
         bottomNavigation.show(R.id.homeFragment)
-        bottomNavigation.add(MeowBottomNavigation.Model(R.id.galleryFragment , R.drawable.ic_photo))
         bottomNavigation.add(MeowBottomNavigation.Model(R.id.homeFragment, R.drawable.ic_focus))
+        bottomNavigation.add(MeowBottomNavigation.Model(R.id.galleryFragment , R.drawable.ic_photo))
+
 //        bottomNavigation.add(MeowBottomNavigation.Model(R.id.analyticsFragment, R.drawable.ic_analytics))
 
         bottomNavigation.setOnClickMenuListener {
             when (it.id) {
-                R.id.galleryFragment -> {
-                    replaceFragment(GalleryFragment.newInstance())
-                    supportActionBar!!.title = "Gallery"
-                }
                 R.id.homeFragment -> {
                     replaceFragment(HomeFragment.newInstance())
                     supportActionBar!!.title = "Home"
                 }
-                R.id.analyticsFragment -> {
-                    replaceFragment(AnalyticsFragment.newInstance())
-                    supportActionBar!!.title = "Analytics"
+                R.id.galleryFragment -> {
+                    replaceFragment(GalleryFragment.newInstance())
+                    supportActionBar!!.title = "Gallery"
                 }
+//                R.id.analyticsFragment -> {
+//                    replaceFragment(AnalyticsFragment.newInstance())
+//                    supportActionBar!!.title = "Analytics"
+//                }
 
                 else -> {
                     replaceFragment(HomeFragment.newInstance())
@@ -95,6 +97,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, HomeFragment()).commit()
                     supportActionBar!!.title = "Home"
+                    bottomNavigation.show(R.id.homeFragment, true)
                 }
                 R.id.AboutUsFragment -> {
                     supportFragmentManager.beginTransaction()
@@ -118,25 +121,31 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         fragmentTransition.replace(R.id.nav_host_fragment,fragment).commit()
     }
 
+    private fun addFragment(fragment: Fragment){
+        val fragmentTransition = supportFragmentManager.beginTransaction()
+        fragmentTransition.add(R.id.nav_host_fragment,fragment).addToBackStack(Fragment::class.java.simpleName).commit()
+    }
+
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
-            val fragmentTransition = supportFragmentManager.beginTransaction()
-            fragmentTransition.replace(R.id.nav_host_fragment,HomeFragment()).commit()
-            bottomNavigation.show(R.id.homeFragment, true)
-            supportActionBar?.show()
-            supportActionBar!!.title = "Home"
-            if (isSelected) {
-                isSelected = false
-            } else {
-//                bottomNavigation.show(2, true)
-//                isSelected = true
+////            val fragmentTransition = supportFragmentManager.beginTransaction()
+////            fragmentTransition.add(R.id.nav_host_fragment,HomeFragment()).commit()
+//            bottomNavigation.show(R.id.nav_host_fragment, true)
+////            supportActionBar?.show()
+////            supportActionBar!!.title = "Home"
+//            if (isSelected) {
+//                isSelected = false
+//                bottomNavigation.show(R.id.homeFragment, true)
+//            } else {
+//                bottomNavigation.show(R.id.galleryFragment, true)
                 onBackPressedDispatcher.onBackPressed()
-            }
+
         }
     }
+
 
     fun logout (menuItem: MenuItem) {
         startActivity(Intent(applicationContext, MainActivity2::class.java))

@@ -2,23 +2,24 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragments.ColorFragment">
+    tools:context=".fragments.BeanCuttingFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground">
+        android:background="@color/colorSecondaryDark">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <ImageView
-                android:id="@+id/color_cover"
+                android:id="@+id/beancutting_cover"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-20dp"
-                android:src="@drawable/color_cover"
+                android:layout_marginTop="-200dp"
+                android:src="@drawable/beancutting_cover"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +30,7 @@
                 android:layout_height="170dp"
                 android:layout_marginTop="240dp"
                 android:background="@drawable/rounded_rectangle_up"
-                android:backgroundTint="@color/colorBackground"
+                android:backgroundTint="@color/colorSecondaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -37,32 +38,32 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/color_title"
+                android:id="@+id/beancutting_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
                 android:layout_marginTop="270dp"
                 android:fontFamily="@font/lato_black"
-                android:text="Color"
+                android:text="Cacao Bean Cutting"
                 android:textColor="@color/black"
                 android:textSize="32sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/color_description"
+                android:id="@+id/beancutting_description"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
-                android:layout_marginEnd="42dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/lato"
-                android:text="@string/color_description"
+                android:text="@string/beancutting_description"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beancutting_title"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/color_title"
                 android:justificationMode="inter_word"
                 android:paddingLeft="10dp"/>
 
@@ -74,10 +75,10 @@
                 android:rowCount="4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/color_description">
+                app:layout_constraintTop_toBottomOf="@+id/beancutting_description">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/brown_card"
+                    android:id="@+id/step1_card"
                     android:layout_width="375dp"
                     android:layout_height="180dp"
                     android:layout_rowWeight="1"
@@ -92,7 +93,7 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
-                            android:id="@+id/brown_img"
+                            android:id="@+id/step1_img"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
@@ -101,12 +102,12 @@
                             >
 
                             <ImageButton
-                                android:id="@+id/brown_img_button"
+                                android:id="@+id/step1_img_button"
                                 android:layout_width="100dp"
                                 android:layout_height="140dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="20dp"
-                                android:src="@drawable/color_brown"
+                                android:src="@drawable/step1"
                                 android:scaleType="fitCenter"
                                 android:background="?android:attr/selectableItemBackground"
                                 android:clickable="true"
@@ -118,30 +119,30 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/brown_img"
+                            app:layout_constraintStart_toEndOf="@id/step1_img"
                             app:layout_constraintEnd_toEndOf="parent">
 
                             <TextView
-                                android:id="@+id/brown_title"
+                                android:id="@+id/step1_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/lato_bold"
-                                android:text="Brown"
+                                android:text="Step 1"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 />
 
                             <TextView
-                                android:id="@+id/brown_description"
+                                android:id="@+id/step1_description"
                                 android:layout_width="230dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="20dp"
                                 android:fontFamily="@font/lato"
-                                android:text="@string/color_brown_description"
+                                android:text="@string/step1_description"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
                                 android:justificationMode="inter_word"/>
@@ -165,9 +166,8 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </com.google.android.material.card.MaterialCardView>
-
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/partlypurple_card"
+                    android:id="@+id/step2_card"
                     android:layout_width="375dp"
                     android:layout_height="180dp"
                     android:layout_rowWeight="1"
@@ -182,7 +182,7 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
-                            android:id="@+id/partlypurple_img"
+                            android:id="@+id/step2_img"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
@@ -191,12 +191,12 @@
                             >
 
                             <ImageButton
-                                android:id="@+id/partlypurple_img_button"
+                                android:id="@+id/step2_img_button"
                                 android:layout_width="100dp"
                                 android:layout_height="140dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="20dp"
-                                android:src="@drawable/color_partly_purple"
+                                android:src="@drawable/step2"
                                 android:scaleType="fitCenter"
                                 android:background="?android:attr/selectableItemBackground"
                                 android:clickable="true"
@@ -208,30 +208,119 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/partlypurple_img"
+                            app:layout_constraintStart_toEndOf="@id/step2_img"
                             app:layout_constraintEnd_toEndOf="parent">
 
                             <TextView
-                                android:id="@+id/partlypurple_title"
+                                android:id="@+id/step2_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/lato_bold"
-                                android:text="Partly Purple"
+                                android:text="Step 2"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 />
 
                             <TextView
-                                android:id="@+id/partlypurple_description"
+                                android:id="@+id/step2_description"
                                 android:layout_width="230dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="20dp"
                                 android:fontFamily="@font/lato"
-                                android:text="@string/color_partlypurple_description"
+                                android:text="@string/step2_description"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:justificationMode="inter_word"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="80dp"
+                                android:fontFamily="@font/lato"
+                                android:text="Click image to view photo."
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="italic" />
+
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/step3_card"
+                    android:layout_width="375dp"
+                    android:layout_height="180dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/colorSecondaryLight"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/step3_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            >
+
+                            <ImageButton
+                                android:id="@+id/step3_img_button"
+                                android:layout_width="100dp"
+                                android:layout_height="140dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/step3"
+                                android:scaleType="fitCenter"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/step3_img"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <TextView
+                                android:id="@+id/step3_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="Step 3"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/step3_description"
+                                android:layout_width="230dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="20dp"
+                                android:fontFamily="@font/lato"
+                                android:text="@string/step3_description"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
                                 android:justificationMode="inter_word"/>
@@ -254,10 +343,11 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </com.google.android.material.card.MaterialCardView>
 
+
+                </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/totalpurple_card"
+                    android:id="@+id/step4_card"
                     android:layout_width="375dp"
                     android:layout_height="180dp"
                     android:layout_rowWeight="1"
@@ -272,7 +362,7 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
-                            android:id="@+id/totalpurple_img"
+                            android:id="@+id/step4_img"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
@@ -281,12 +371,12 @@
                             >
 
                             <ImageButton
-                                android:id="@+id/totalpurple_img_button"
+                                android:id="@+id/step4_img_button"
                                 android:layout_width="100dp"
                                 android:layout_height="140dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="20dp"
-                                android:src="@drawable/color_total_purple"
+                                android:src="@drawable/step4"
                                 android:scaleType="fitCenter"
                                 android:background="?android:attr/selectableItemBackground"
                                 android:clickable="true"
@@ -298,30 +388,30 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/totalpurple_img"
+                            app:layout_constraintStart_toEndOf="@id/step4_img"
                             app:layout_constraintEnd_toEndOf="parent">
 
                             <TextView
-                                android:id="@+id/totalpurple_title"
+                                android:id="@+id/step4_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/lato_bold"
-                                android:text="Total Purple"
+                                android:text="Step 4"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 />
 
                             <TextView
-                                android:id="@+id/totalpurple_description"
+                                android:id="@+id/step4_description"
                                 android:layout_width="230dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="20dp"
                                 android:fontFamily="@font/lato"
-                                android:text="@string/color_totalpurple_description"
+                                android:text="@string/step4_description"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
                                 android:justificationMode="inter_word"/>
@@ -330,7 +420,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="bottom"
-                                android:layout_marginTop="20dp"
+                                android:layout_marginTop="30dp"
                                 android:layout_marginEnd="80dp"
                                 android:fontFamily="@font/lato"
                                 android:text="Click image to view photo."
@@ -344,10 +434,193 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </com.google.android.material.card.MaterialCardView>
 
+
+                </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/verydarkbrown_card"
+                    android:id="@+id/step5_card"
+                    android:layout_width="375dp"
+                    android:layout_height="180dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/colorSecondaryLight"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/step5_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            >
+
+                            <ImageButton
+                                android:id="@+id/step5_img_button"
+                                android:layout_width="100dp"
+                                android:layout_height="140dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/step5"
+                                android:scaleType="fitCenter"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/step5_img"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <TextView
+                                android:id="@+id/step5_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="Step 5"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/step5_description"
+                                android:layout_width="230dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="20dp"
+                                android:fontFamily="@font/lato"
+                                android:text="@string/step5_description"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:justificationMode="inter_word"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="80dp"
+                                android:fontFamily="@font/lato"
+                                android:text="Click image to view photo."
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="italic" />
+
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/step6_card"
+                    android:layout_width="375dp"
+                    android:layout_height="180dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/colorSecondaryLight"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/step6_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            >
+
+                            <ImageButton
+                                android:id="@+id/step6_img_button"
+                                android:layout_width="100dp"
+                                android:layout_height="140dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/step6"
+                                android:scaleType="fitCenter"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/step6_img"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <TextView
+                                android:id="@+id/step6_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="Step 6"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/step6_description"
+                                android:layout_width="230dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="20dp"
+                                android:fontFamily="@font/lato"
+                                android:text="@string/step6_description"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:justificationMode="inter_word"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_marginTop="40dp"
+                                android:layout_marginEnd="80dp"
+                                android:fontFamily="@font/lato"
+                                android:text="Click image to view photo."
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="italic" />
+
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/step7_card"
                     android:layout_width="375dp"
                     android:layout_height="180dp"
                     android:layout_rowWeight="1"
@@ -363,7 +636,7 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
-                            android:id="@+id/verydarkbrown_img"
+                            android:id="@+id/step7_img"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
@@ -372,12 +645,12 @@
                             >
 
                             <ImageButton
-                                android:id="@+id/verydarkbrown_img_button"
+                                android:id="@+id/step7_img_button"
                                 android:layout_width="100dp"
                                 android:layout_height="140dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="20dp"
-                                android:src="@drawable/color_very_dark_brown"
+                                android:src="@drawable/step7"
                                 android:scaleType="fitCenter"
                                 android:background="?android:attr/selectableItemBackground"
                                 android:clickable="true"
@@ -389,30 +662,30 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/verydarkbrown_img"
+                            app:layout_constraintStart_toEndOf="@id/step7_img"
                             app:layout_constraintEnd_toEndOf="parent">
 
                             <TextView
-                                android:id="@+id/verydarkbrown_title"
+                                android:id="@+id/step7_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/lato_bold"
-                                android:text="Very Dark Brown"
+                                android:text="Step 7"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 />
 
                             <TextView
-                                android:id="@+id/verydarkbrown_description"
+                                android:id="@+id/step7_description"
                                 android:layout_width="230dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="20dp"
                                 android:fontFamily="@font/lato"
-                                android:text="@string/color_verydarkbrown_description"
+                                android:text="@string/step7_description"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
                                 android:justificationMode="inter_word"/>
@@ -421,7 +694,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="bottom"
-                                android:layout_marginTop="10dp"
+                                android:layout_marginTop="40dp"
                                 android:layout_marginEnd="80dp"
                                 android:fontFamily="@font/lato"
                                 android:text="Click image to view photo."
@@ -435,7 +708,17 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
                 </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
 
 
             </GridLayout>

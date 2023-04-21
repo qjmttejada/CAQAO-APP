@@ -20,7 +20,7 @@
             android:id="@+id/photos_grid"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:padding="6dp"
+            android:padding="8dp"
             android:clipToPadding="false"
             app:layoutManager=
                 "androidx.recyclerview.widget.GridLayoutManager"
@@ -31,7 +31,8 @@
             app:spanCount="2"
             tools:itemCount="16"
             tools:listitem="@layout/grid_view_item"
-            app:listData="@{viewModel.detections}"/>
+            app:listData="@{viewModel.detections}"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
