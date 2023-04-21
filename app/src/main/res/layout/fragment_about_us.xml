@@ -16,8 +16,8 @@
 
             <ImageView
                 android:id="@+id/caqaoLogo"
-                android:layout_width="264dp"
-                android:layout_height="486dp"
+                android:layout_width="259dp"
+                android:layout_height="473dp"
                 android:layout_marginTop="-72dp"
                 android:src="@drawable/caqao_new_logo_yellow"
                 app:layout_constraintEnd_toEndOf="parent"
