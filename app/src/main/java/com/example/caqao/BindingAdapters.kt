@@ -142,8 +142,8 @@ fun bindCacaoColorBarchart(barChart: BarChart, cacaoDetection: CacaoDetection?) 
     barDataSet = BarDataSet(barList, "Cacao Colors")
     barData = BarData(barDataSet)
     barDataSet.setColors(
+        Color.rgb(150,75,0), //  brown
         Color.rgb(56,28,0), // very dark brown
-        Color.rgb(150,75,0), // brown
         Color.rgb(156,68,172), // partly purple
         Color.rgb(102,4,131), // total purple
     )
@@ -181,7 +181,7 @@ fun bindCacaoDefectBarchart(barChart: BarChart, cacaoDetection: CacaoDetection?)
     barDataSet.setColors(
         Color.rgb(118,134,146), // slaty
         Color.rgb(109,157,92),  // mouldy
-        Color.rgb(255,255,255), // insect infested
+        Color.rgb(248,180,48), // insect infested
         Color.rgb(173,141,111), // germinated
     )
     barChart.data = barData
@@ -215,6 +215,13 @@ fun bindFissuringGradeBarChart(barChart: BarChart, cacaoDetection: CacaoDetectio
     barList.sortByDescending { it.y }
     barDataSet = BarDataSet(barList, "Fissuring Grades")
     barData = BarData(barDataSet)
+    barDataSet.setColors(
+
+        Color.rgb(0,110,179),  // G2
+        Color.rgb(74,201,227), // G3
+        Color.rgb(183,221,225), // G4
+        Color.rgb(40,87,128), // G1
+    )
     barChart.data = barData
     barDataSet.valueTextColor= Color.BLACK
     barDataSet.valueTextSize = 15f

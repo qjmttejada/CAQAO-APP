@@ -26,7 +26,7 @@
 
                 <LinearLayout
                     android:id="@+id/resultsRoundedRectangle"
-                    android:layout_width="415dp"
+                    android:layout_width="match_parent"
                     android:layout_height="380dp"
                     android:layout_marginTop="-1dp"
                     android:layout_marginBottom="0dp"
@@ -490,7 +490,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#6D9D5C"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -519,7 +519,7 @@
                                 android:text="@string/mouldy_description"
                                 android:textSize="14sp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:textColor="@color/black">
 
                             </TextView>
 
@@ -534,7 +534,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="@color/colorSecondaryDark"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -564,7 +564,7 @@
                                 android:padding="20dp"
                                 android:textSize="14sp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:textColor="@color/black">
 
                             </TextView>
 
@@ -579,7 +579,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#768692"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -608,7 +608,7 @@
                                 android:textSize="14sp"
                                 android:padding="20dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:textColor="@color/black">
 
                             </TextView>
 
@@ -623,7 +623,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#AD8D6F"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -652,7 +652,7 @@
                                 android:textSize="14sp"
                                 android:padding="20dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:textColor="@color/black">
 
                             </TextView>
 
@@ -730,7 +730,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#964B00"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -774,7 +774,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#9C44AC"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -819,7 +819,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#660483"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -863,7 +863,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#381C00"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -971,7 +971,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#285780"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -1015,7 +1015,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#006EB3"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -1060,7 +1060,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#4AC9E3"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -1087,9 +1087,9 @@
                                 android:layout_marginTop="40dp"
                                 android:text="@string/g3_description"
                                 android:textSize="14sp"
+                                android:textColor="@color/black"
                                 android:padding="10dp"
-                                android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:fontFamily="@font/lato">
 
                             </TextView>
 
@@ -1104,7 +1104,7 @@
                             android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
-                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardBackgroundColor="#B7DDE1"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
@@ -1131,9 +1131,9 @@
                                 android:layout_marginTop="40dp"
                                 android:text="@string/g4_description"
                                 android:textSize="14sp"
+                                android:textColor="@color/black"
                                 android:padding="10dp"
-                                android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:fontFamily="@font/lato">
 
                             </TextView>
 

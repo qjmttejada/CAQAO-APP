@@ -16,6 +16,8 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -82,6 +84,11 @@ class HomeFragment : Fragment() {
                 .replace(R.id.nav_host_fragment, BeanGradeFragment()).commit()
         }
 
+        fragmentBinding.beancuttingCard.setOnClickListener { view : View ->
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, BeanCuttingFragment()).commit()
+        }
+
         val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         view.visibility = View.VISIBLE
 
@@ -97,6 +104,14 @@ class HomeFragment : Fragment() {
             uploadButton.setOnClickListener { galleryCheckPermission() }
             cameraButton.setOnClickListener { cameraCheckPermission() }
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner, object : OnBackPressedCallback(true){
+                override fun handleOnBackPressed() {
+//                    val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+//                    botnav.show(R.id.homeFragment, true)
+                }
+            })
     }
 
     private fun galleryCheckPermission() {
@@ -238,9 +253,10 @@ class HomeFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): HomeFragment{
-            return HomeFragment()
-        }
+        @JvmStatic
+        fun newInstance()=
+            HomeFragment().apply { arguments=Bundle().apply {  } }
+
     }
 
 

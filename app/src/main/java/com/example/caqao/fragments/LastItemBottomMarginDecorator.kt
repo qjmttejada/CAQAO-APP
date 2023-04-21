@@ -1,11 +1,10 @@
 package com.example.caqao.fragments
 
-import android.content.Context
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class LastItemMarginDecorator(private val marginBottom: Int) : RecyclerView.ItemDecoration() {
+class LastItemBottomMarginDecorator(private val marginBottom: Int) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
