@@ -3,7 +3,6 @@ package com.example.caqao
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextUtils
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -16,19 +15,18 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.database.RegisterDatabase
 import com.example.caqao.database.RegisterEntity
 import com.example.caqao.databinding.FragmentRegisterBinding
 import com.example.caqao.models.CacaoDetectionViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.mindrot.jbcrypt.BCrypt
 import java.util.*
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
     private var checkExistingUser = MutableLiveData<Int>()
+    private val sharedViewModel: CacaoDetectionViewModel by activityViewModels()
     private var any : Int = 0
 
     override fun onCreateView(
@@ -41,19 +39,9 @@ class RegisterFragment : Fragment() {
             container,
             false
         )
-        checkExistingUser.observe(viewLifecycleOwner,{
-            any = it
-            Log.e(String(),it.toString()+"string")
-            if(any == 0){
-                checkPassword()
-            }else{
-                Toast.makeText(requireContext(), "Username already exists.", Toast.LENGTH_SHORT).show()
-            }
-        })
 
         binding.signUpBtn.setOnClickListener {view: View-> view
-            addUser ()
-
+            addUser()
         }
 
         binding.backBtn.setOnClickListener{
@@ -66,11 +54,6 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(R.menu.option_menu, menu)
-//    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
@@ -78,7 +61,6 @@ class RegisterFragment : Fragment() {
 
     private fun addUser() {
 
-        val id = UUID.randomUUID().toString()
         val firstname = binding.registerFirstname.text.toString()
         val lastname = binding.registerLastname.text.toString()
         val email = binding.registerEmail.text.toString()
@@ -86,97 +68,94 @@ class RegisterFragment : Fragment() {
         val password = binding.registerPassword.text.toString()
         val confirmpass = binding.registerConfirmpassword.text.toString()
 
-        lifecycleScope.launch {
-            val user = RegisterEntity(
-                id = id,
-                firstname = firstname,
-                lastname = lastname,
-                email = email,
-                username = username,
-                password = password,
-                confirmpass = confirmpass
-            )
-            if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || confirmpass.isEmpty()) {
-                Toast.makeText(
-                    requireContext(),
-                    "Please fill out all the fields.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-//                val newUser = RegisterEntity(id = id, firstname = firstname, lastname = lastname, email = email, username = username, password = password, confirmpass = confirmpass
-//                )
-//                val userDao = RegisterDatabase(requireActivity()).getRegisterDatabaseDao()
-//                lifecycleScope.launch {
-//                    userDao.insert(newUser)
-                checkUser()
+        if (checkUserInputs(firstname, lastname, email, username, password, confirmpass)){
+            lifecycleScope.launch {
+                val userAccountCreationStatus = sharedViewModel.registerUser(
+                    firstname, lastname, email, username, password)
+                when (userAccountCreationStatus) {
+                    200 -> {
+                        binding.registerUsername.error = null
+                        binding.registerPassword.error = null
+                        Toast.makeText(requireContext(), "Account successfully created!!",
+                            Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.action_registerFragment_to_loginFragment2)
+                    }
+                    401 -> {
+                        binding.registerUsername.error = "Username already exists."
+                        Toast.makeText(requireContext(), "Username already exists.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                    402 -> {
+                        binding.registerEmail.error = "User email already exists."
+                        Toast.makeText(requireContext(), "User email already exists.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(requireContext(), "Error: Something Went Wrong.",
+                            Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
-
-
-
-
-    private fun checkUser():Boolean{
-        val username = binding.registerUsername.text.toString()
-        var check = 2
-        val jobCheckUser = lifecycleScope.launch(Dispatchers.IO){
-            check = RegisterDatabase(requireActivity()).getRegisterDatabaseDao().checkUser(username)
-            checkExistingUser.postValue(check)
-            Log.e(String(),check.toString())
-        }
-        lifecycleScope.launch(){
-            jobCheckUser.join()
-        }
-        Log.e(String(),check.toString())
-        return (check==1)
     }
 
-    private fun checkPassword(){
-        //hashpass
-//        val salt = BCrypt.gensalt()
-//        val hashedPassword1 = BCrypt.hashpw(password, salt)
-//        val hashedPassword2 = BCrypt.hashpw(confirmpass, salt)
+    private fun checkUserInputs(
+        firstname: String,
+        lastname: String,
+        email: String,
+        username: String,
+        password: String,
+        confirmpass: String
+    ): Boolean {
 
-        val id = UUID.randomUUID().toString()
-        val firstname = binding.registerFirstname.text.toString()
-        val lastname = binding.registerLastname.text.toString()
-        val email = binding.registerEmail.text.toString()
-        Log.e(String(),binding.registerUsername.text.toString())
-        val username = binding.registerUsername.text.toString()
-        Log.e(String(),username)
-        val password = binding.registerPassword.text.toString()
-        val confirmpass = binding.registerConfirmpassword.text.toString()
+        // is password valid?
+        if (!isPasswordValid(password)) {
+            Toast.makeText(requireContext(), "Password must contain 8 characters and above.",
+                Toast.LENGTH_SHORT).show()
+            binding.registerPassword.error = "Password must contain 8 characters and above."
+            return false
+        }
 
-
-        val user = RegisterEntity(id = id,
-            firstname = firstname,
-            lastname = lastname,
-            email = email,
-            username = username,
-            password = password,
-            confirmpass = confirmpass)
-
+        // does password match?
         if (confirmpass != password){
-            Toast.makeText(requireContext(), "Passwords do not match.", Toast.LENGTH_SHORT).show()
-        }else{
-            lifecycleScope.launch{
-//                RegisterDatabase(requireActivity()).getRegisterDatabaseDao().insert(user)
-                if (!isPasswordValid(binding.registerPassword.text) && !isPasswordValid(binding.registerConfirmpassword.text) ) {
-                    binding.registerPassword.error = "Password must contain at least 8 characters."
-                    binding.registerConfirmpassword.error = "Password must contain at least 8 characters."
-                } else {
-                    RegisterDatabase(requireActivity()).getRegisterDatabaseDao().insert(user)
-                    binding.registerPassword.error = null // Clear the error
-                    binding.registerConfirmpassword.error = null // Clear the error
-                    Toast.makeText(requireContext(), "Account successfully created!!", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment2)
-                }
-            }
+            Toast.makeText(requireContext(), "Passwords do not match.",
+                Toast.LENGTH_SHORT).show()
+            binding.registerConfirmpassword.error = "Passwords do not match."
+            return false
         }
+
+        // is email valid?
+        if (!isEmailValid(email)) {
+            Toast.makeText(requireContext(), "Email must be in correct format.",
+                Toast.LENGTH_SHORT).show()
+            binding.registerEmail.error = "Email must be in correct format."
+            return false
+        }
+
+        // all fields must not be empty
+        if (firstname.isBlank() || lastname.isBlank() || email.isBlank() || username.isBlank() ||
+                password.isBlank() || confirmpass.isBlank()) {
+            Toast.makeText(requireContext(), "Please fill in all the fields.",
+                Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        binding.registerFirstname.error = null
+        binding.registerLastname.error = null
+        binding.registerUsername.error = null
+        binding.registerPassword.error = null
+        binding.registerConfirmpassword.error = null
+
+        return true
     }
 
-    private fun isPasswordValid(text: Editable?): Boolean {
+    private fun isPasswordValid(text: String): Boolean {
         return text != null && text.length >= 8
+    }
+
+    private fun isEmailValid(email: String): Boolean {
+        val emailRegex = Regex("^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z]{2,})$")
+        return emailRegex.matches(email)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

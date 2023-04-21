@@ -6,9 +6,8 @@ import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.*
-import com.example.caqao.network.CacaoApi
-import com.example.caqao.network.CacaoDetection
-import com.example.caqao.network.ImageValidationStatus
+import com.example.caqao.network.*
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -17,11 +16,11 @@ import java.io.File
 import java.io.FileOutputStream
 
 enum class CaqaoApiStatus { LOADING, ERROR, DONE }
-
+var USER_TOKEN: String? = null
 class CacaoDetectionViewModel: ViewModel() {
 
-    private val _selectedImage = MutableLiveData<Uri>()
-    val selectedImage: LiveData<Uri>
+    private val _selectedImage = MutableLiveData<Uri?>()
+    val selectedImage: LiveData<Uri?>
         get() = _selectedImage
 
     private val _status = MutableLiveData<CaqaoApiStatus>()
@@ -39,6 +38,15 @@ class CacaoDetectionViewModel: ViewModel() {
 
     private val _detectionStatus = MutableLiveData<String>()
     val detectionStatus: LiveData<String> = _detectionStatus
+
+    private val _userToken = MutableLiveData<String>()
+    val userToken: LiveData<String> = _userToken
+
+    private val _userAccountCreationStatus = MutableLiveData<UserAccountCreationStatus>()
+    val userAccountCreationStatus: LiveData<UserAccountCreationStatus> = _userAccountCreationStatus
+
+    private val _userLoginStatus = MutableLiveData<UserLoginStatus?>()
+    val userLoginStatus: LiveData<UserLoginStatus?> = _userLoginStatus
 
     init {
         resetCacaoDetection()
@@ -84,8 +92,11 @@ class CacaoDetectionViewModel: ViewModel() {
     fun saveAssessmentResults() {
         viewModelScope.launch {
             try {
-                CacaoApi.retrofitService.saveDetectionResults(
-                    _cacaoDetection.value?.imgSrcUrl.toString())
+                USER_TOKEN?.let {
+                    CacaoApi.retrofitService.saveDetectionResults(
+                        token = it,
+                        imgSrcUrl = _cacaoDetection.value?.imgSrcUrl.toString())
+                }
             } catch (e: Exception) {
                 Log.d("Saving Results Failed", "Error: ${e}")
             }
@@ -101,7 +112,7 @@ class CacaoDetectionViewModel: ViewModel() {
     fun getCacaoDetections() {
         viewModelScope.launch {
             try {
-                _detections.value = CacaoApi.retrofitService.getDetections()
+                _detections.value = USER_TOKEN?.let { CacaoApi.retrofitService.getDetections(it) }
                 _detectionStatus.value = "Success: CAQAO detections retrieved"
             } catch (e: Exception) {
                 _detectionStatus.value = "Failure: ${e.message}"
@@ -142,5 +153,40 @@ class CacaoDetectionViewModel: ViewModel() {
 
     }
 
+    suspend fun registerUser(
+        first_name: String, last_name: String, email: String,
+        username: String, password: String
+    ): Int {
+
+        val user = User(first_name, last_name, email, username, password)
+        val deferred = CompletableDeferred<Int>()
+
+        viewModelScope.launch {
+            try {
+                _userAccountCreationStatus.value = CacaoApi.retrofitService.createUser(user)
+                _userAccountCreationStatus.value!!.status?.let { deferred.complete(it) }
+            } catch (e: Exception) {
+                Log.d("UserCreationFailed", "${e.message}")
+            }
+        }
+        return deferred.await()
+    }
+
+    suspend fun loginUser(username: String, password: String): Int {
+        val user = User(username=username, password=password)
+        val deferred = CompletableDeferred<Int>()
+
+        viewModelScope.launch {
+            try {
+                _userLoginStatus.value = CacaoApi.retrofitService.loginUser(user)
+                _userLoginStatus.value?.status?.let { deferred.complete(it) }
+                USER_TOKEN = _userLoginStatus.value?.token
+                Log.d("UserToken", "${_userLoginStatus.value?.token}")
+            } catch (e: Exception) {
+                Log.d("UserLoginFailed", "${e.message}")
+            }
+        }
+        return deferred.await()
+    }
 
 }

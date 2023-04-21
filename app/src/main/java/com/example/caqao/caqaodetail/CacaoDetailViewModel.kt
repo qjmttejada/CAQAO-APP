@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.caqao.models.CaqaoApiStatus
+import com.example.caqao.models.USER_TOKEN
 import com.example.caqao.network.CacaoApi
 import com.example.caqao.network.CacaoDetection
 import kotlinx.coroutines.launch
@@ -43,7 +44,7 @@ class CacaoDetailViewModel(
     fun getCacaoDetections() {
         viewModelScope.launch {
             try {
-                _detections.value = CacaoApi.retrofitService.getDetections()
+                _detections.value = USER_TOKEN?.let { CacaoApi.retrofitService.getDetections(it) }
                 _detectionStatus.value = "Success: CAQAO detections retrieved"
             } catch (e: Exception) {
                 _detectionStatus.value = "Failure: ${e.message}"
@@ -55,7 +56,10 @@ class CacaoDetailViewModel(
         viewModelScope.launch {
             _status.value = CaqaoApiStatus.LOADING
             try {
-                _cacaoDetection.value = CacaoApi.retrofitService.getDetectionWithId(cacaoDetectionId)
+                _cacaoDetection.value = USER_TOKEN?.let {
+                    CacaoApi.retrofitService.getDetectionWithId(
+                        it, cacaoDetectionId)
+                }
                 _status.value = CaqaoApiStatus.DONE
                 Log.d("GetByIDSuccess", "Bean Grade: ${_cacaoDetection.value!!.beanGrade}")
             } catch (e: Exception) {
@@ -75,6 +79,5 @@ class CacaoDetailViewModel(
     fun onClose() {
         _navigateToGalleryFragment.value = true
     }
-
 
 }

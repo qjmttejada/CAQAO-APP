@@ -53,8 +53,6 @@ class ResultsFragment : Fragment() {
 
     }
 
-
-
     override fun onDestroyView() {
         super.onDestroyView()
         sharedViewModel.resetCacaoDetection()
