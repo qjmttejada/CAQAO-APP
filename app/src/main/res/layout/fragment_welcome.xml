@@ -27,7 +27,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:src="@drawable/caqao_logo_dark"
                 app:layout_constraintTop_toTopOf="parent"/>
 
@@ -67,10 +67,10 @@
         <ImageView
             android:id="@+id/welcome_bg"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_260sdp"
+            android:layout_height="@dimen/_270sdp"
             android:layout_below="@+id/caqao_txt"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="470dp"
+            android:layout_marginTop="460dp"
             android:src="@drawable/welcome" />
 
         <ScrollView
@@ -91,7 +91,7 @@
                     android:id="@+id/welcome_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_65sdp"
                     android:layout_marginLeft="@dimen/_31sdp"
                     android:fontFamily="@font/lato_bold"
                     android:text="Welcome"

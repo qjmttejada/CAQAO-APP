@@ -1,15 +1,25 @@
 package com.example.caqao.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
+import coil.load
 import com.example.caqao.R
+import com.example.caqao.caqaodetail.CacaoDetailViewModel
+import com.example.caqao.databinding.FragmentAssessBinding
+import com.example.caqao.databinding.FragmentCacaoDetailDialogBinding
+import com.example.caqao.models.CacaoDetectionViewModel
 
 
-class DialogFragment : DialogFragment() {
+open class DialogFragment : DialogFragment() {
+
+//    private val sharedViewModel: CacaoDetailViewModel by activityViewModels()
+//    private lateinit var binding: FragmentCacaoDetailDialogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,9 +54,21 @@ class DialogFragment : DialogFragment() {
             18 -> inflater.inflate(R.layout.step6_dialog, container, false)
             19 -> inflater.inflate(R.layout.step7_dialog, container, false)
 
+            // cacao detail results
+            // 20 -> inflater.inflate(R.layout.fragment_cacao_detail_dialog, container, false)
+            // binding = FragmentCacaoDetailDialogBinding.inflate(inflater, container, false)
+//            20 -> {
+//                binding = FragmentCacaoDetailDialogBinding.bind(inflater.inflate(
+//                    R.layout.fragment_cacao_detail_dialog, container, false))
+//                if (arguments?.getInt("argument") == 20) {
+//                    binding.viewModel = sharedViewModel
+//                    binding.lifecycleOwner = viewLifecycleOwner
+//                    Log.d("PopupImageUri", "${sharedViewModel.cacaoDetection.value?.imgSrcUrl}")
+//                }
+//                binding.root
+//            }
             else -> throw IllegalArgumentException("Invalid layout ID")
         }
-
         return rootView
     }
 
@@ -57,8 +79,6 @@ class DialogFragment : DialogFragment() {
         closeButton.setOnClickListener {
             dismiss()
         }
-
-
 
     }
 

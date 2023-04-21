@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
 import com.example.caqao.databinding.FragmentCacaoDetailBinding
-
+import com.example.caqao.fragments.*
 
 
 class CacaoDetailFragment : Fragment() {
@@ -41,6 +42,21 @@ class CacaoDetailFragment : Fragment() {
 
         binding.setLifecycleOwner(this)
 
+        //dialog for image
+        binding.cacaoDetectResult.setOnClickListener {
+            val showDetectResultDialog = CacaoDetailDialogFragment()
+            val args = Bundle()
+            cacaoDetailViewModel!!.cacaoDetection.value?.id?.let { it1 ->
+                args.putInt("cacaoDetectionId",
+                    it1
+                )
+            }
+            showDetectResultDialog.arguments = args
+            showDetectResultDialog.show((activity as AppCompatActivity).supportFragmentManager,
+                "showDetectResultPopUp")
+        }
+
+
         return binding.root
     }
 
@@ -50,6 +66,8 @@ class CacaoDetailFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner, object : OnBackPressedCallback(true){
                 override fun handleOnBackPressed() {
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, GalleryFragment()).commit()
                 }
             })
 

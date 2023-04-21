@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.CacaoDetectionListener
 import com.example.caqao.CacaoGridAdapter
 import com.example.caqao.R
@@ -53,14 +55,22 @@ class GalleryFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner, object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment, HomeFragment()).commit()
+                val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+                botnav.show(R.id.homeFragment, true)
+                (activity as AppCompatActivity).supportActionBar?.title = "Home"
             }
         })
+        val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+        view.visibility = View.VISIBLE
     }
 
     companion object {
-        fun newInstance(): GalleryFragment{
-            return GalleryFragment()
-        }
+        @JvmStatic
+        fun newInstance()=
+            GalleryFragment().apply { arguments=Bundle().apply {  } }
+
     }
 
 }
