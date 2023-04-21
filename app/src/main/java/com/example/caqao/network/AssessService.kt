@@ -48,18 +48,24 @@ interface CacaoApiService {
     @POST("save_results")
     @FormUrlEncoded
     suspend fun saveDetectionResults(
-        @Field("imgSrcUrl") imgSrcUrl: String
+        @Header("x-access-token") token: String,
+        @Field("imgSrcUrl") imgSrcUrl: String,
     )
 
     @GET("detections")
-    suspend fun getDetections(): List<CacaoDetection>
+    suspend fun getDetections(@Header("x-access-token") token: String): List<CacaoDetection>
 
     @POST("get_detection_with_id")
     @FormUrlEncoded
     suspend fun getDetectionWithId(
+        @Header("x-access-token") token: String,
         @Field("cacaoDetectionId") cacaoDetectionId: Int,
     ): CacaoDetection
 
+    @POST("register")
+    suspend fun createUser(@Body user: User): UserAccountCreationStatus
+    @POST("login")
+    suspend fun loginUser(@Body user: User): UserLoginStatus
 }
 
 object CacaoApi {

@@ -11,11 +11,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import com.example.caqao.database.RegisterDatabase
 import com.example.caqao.database.RegisterEntity
 import com.example.caqao.databinding.FragmentLoginBinding
+import com.example.caqao.models.CacaoDetectionViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.mindrot.jbcrypt.BCrypt
@@ -23,15 +25,18 @@ import org.mindrot.jbcrypt.BCrypt
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private var checkExistingAccount = MutableLiveData<List<RegisterEntity>>()
-    private var userExist = emptyList<RegisterEntity>()
+    private val sharedViewModel: CacaoDetectionViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate<FragmentLoginBinding>(inflater, R.layout.fragment_login, container, false)
+        binding = DataBindingUtil.inflate<FragmentLoginBinding>(inflater, R.layout.fragment_login,
+            container, false)
+
+        binding.lifecycleOwner = viewLifecycleOwner
+
         binding.signInBtn.setOnClickListener {
             checkAccount()
         }
@@ -40,52 +45,46 @@ class LoginFragment : Fragment() {
             val intent = Intent(requireActivity(), MainActivity2::class.java)
             startActivity(intent)
         }
-
-
-        checkExistingAccount.observe(viewLifecycleOwner) {
-            userExist = it
-            when{
-                TextUtils.isEmpty(binding.loginUsername.text.toString().trim()) ->{
-                    binding.loginUsername.error = "Required field is empty"
-                }
-                TextUtils.isEmpty(binding.loginPassword.text.toString().trim()) ->{
-                    binding.loginPassword.error = "Required field is empty"
-                }
-                else->{
-                    if (userExist.isNotEmpty()) {
-                        val intent = Intent(requireContext(), MainActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(requireContext(), "Invalid Credentials!", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-            }
-
-        }
-
         return binding.root
     }
 
-    private fun checkAccount():List<RegisterEntity>{
+    private fun checkAccount() {
+
+        var userLoginStatus: Int? = null
         val username = binding.loginUsername.text.toString()
         val password = binding.loginPassword.text.toString()
 
-        //hashpass
-//        val salt = user.password.substring(0,16)
-//        val hashedPassword = BCrypt.hashpw(password, salt)
+        if (checkUserInputs(username, password)) {
+            lifecycleScope.launch {
+                userLoginStatus = sharedViewModel.loginUser(username, password)
+                when (userLoginStatus) {
+                    200 -> {
+                        Toast.makeText(requireContext(), "User Login Successfully",
+                            Toast.LENGTH_SHORT).show()
+                        val intent = Intent(requireContext(), MainActivity::class.java)
+                        startActivity(intent)
+                    }
+                    401 -> {
+                        Toast.makeText(requireContext(), "Invalid Username or Password",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
 
-        var check = emptyList<RegisterEntity>()
-        val jobCheckUser = lifecycleScope.launch(Dispatchers.IO){
-            check = RegisterDatabase(requireActivity()).getRegisterDatabaseDao().checkAccount(username , password)
-            checkExistingAccount.postValue(check)
-            Log.e(String(),check.toString())
+    fun checkUserInputs(username:String, password:String): Boolean {
+        if (username.isBlank()) {
+            binding.loginUsername.error = "Please enter your username."
+            return false
         }
-        lifecycleScope.launch(){
-            jobCheckUser.join()
+        if (password.isBlank()) {
+            binding.loginPassword.error = "Please enter your password."
+            return false
         }
-        Log.e(String(),check.toString())
-        return (check)
+        binding.loginUsername.error = null
+        binding.loginPassword.error = null
+        return true
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
