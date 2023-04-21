@@ -34,7 +34,7 @@ class WelcomeFragment : Fragment() {
         val text = binding.caqaoTxt
         val logo = binding.caqaoTextLogoDark
         val slogan = binding.welcomeLayout
-        val background = binding.welcomeBg
+//        val background = binding.welcomeBg
         val signup = binding.signUpBtn
         val signin = binding.signInBtn
 
@@ -42,7 +42,7 @@ class WelcomeFragment : Fragment() {
         text.animation = topAnim
         logo.animation = topAnim
         slogan.animation = bottomAnim
-        background.animation = bottomAnim
+//        background.animation = bottomAnim
         signin.animation = botAnim
         signup.animation = bottAnim
 
