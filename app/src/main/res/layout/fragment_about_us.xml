@@ -89,7 +89,7 @@
                 android:id="@+id/developers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="40dp"
                 android:text="Developers"
                 android:textAlignment="center"
@@ -134,7 +134,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/dea"
+                    android:src="@drawable/profile_fj"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
@@ -186,7 +186,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/dea"
+                    android:src="@drawable/profile_dea"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
@@ -238,7 +238,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/dea"
+                    android:src="@drawable/profile_trisha"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
@@ -290,7 +290,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/dea"
+                    android:src="@drawable/profile_michael"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
@@ -321,8 +321,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_Michael"
                 />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
