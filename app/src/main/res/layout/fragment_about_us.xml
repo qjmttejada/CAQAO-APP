@@ -16,8 +16,8 @@
 
             <ImageView
                 android:id="@+id/caqaoLogo"
-                android:layout_width="264dp"
-                android:layout_height="486dp"
+                android:layout_width="259dp"
+                android:layout_height="473dp"
                 android:layout_marginTop="-72dp"
                 android:src="@drawable/caqao_new_logo_yellow"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +89,7 @@
                 android:id="@+id/developers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="40dp"
                 android:text="Developers"
                 android:textAlignment="center"
@@ -134,7 +134,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/dea"
+                    android:src="@drawable/profile_fj"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
                 android:layout_marginStart="20dp"
-                android:text="FJ Vincent E. Atabay"
+                android:text="FJ Vincent E. Atabay\n"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp"
                 app:fontFamily="@font/lato"
@@ -186,7 +186,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/dea"
+                    android:src="@drawable/profile_dea"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
@@ -195,7 +195,7 @@
                 android:id="@+id/name_Dea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="85dp"
+                android:layout_marginTop="75dp"
                 android:layout_marginStart="20dp"
                 android:text="Dea Marielle G. Cahambing"
                 android:textColor="@color/colorPrimary"
@@ -238,7 +238,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/dea"
+                    android:src="@drawable/profile_trisha"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
@@ -290,7 +290,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/dea"
+                    android:src="@drawable/profile_michael"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
@@ -321,8 +321,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_Michael"
                 />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

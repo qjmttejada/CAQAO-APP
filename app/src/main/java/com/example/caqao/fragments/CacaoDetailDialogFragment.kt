@@ -1,10 +1,8 @@
 package com.example.caqao.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ScaleGestureDetector
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
@@ -20,7 +18,12 @@ import kotlin.math.min
 class CacaoDetailDialogFragment : DialogFragment() {
 
     private var scaleFactor = 1f
+    private var lastX = 0f
+    private var lastY = 0f
+    private var posX = 0f
+    private var posY = 0f
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,12 +36,27 @@ class CacaoDetailDialogFragment : DialogFragment() {
         val imageView = rootView.findViewById<ImageView>(R.id.cacao_detect_result)
         val detector = ScaleGestureDetector(requireContext(), ScaleListener(imageView))
 
-        imageView.setOnTouchListener { _, event ->
+        imageView.setOnTouchListener { view, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    lastX = event.rawX
+                    lastY = event.rawY
+                    posX = view.x
+                    posY = view.y
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    val deltaX = event.rawX - lastX
+                    val deltaY = event.rawY - lastY
+                    view.animate()
+                        .x(posX + deltaX)
+                        .y(posY + deltaY)
+                        .setDuration(0)
+                        .start()
+                }
+            }
             detector.onTouchEvent(event)
             true
         }
-
-
 
         val viewModelFactory = arguments?.getInt("cacaoDetectionId")
             ?.let { CacaoDetailViewModelFactory(it) }
