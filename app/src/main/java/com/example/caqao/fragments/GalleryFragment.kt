@@ -58,7 +58,11 @@ class GalleryFragment : Fragment() {
         })
 
         val emptyGallery = view.findViewById<TextView>(R.id.empty_gallery)
-        
+        if (sharedViewModel.getCacaoDetections().value.isNullOrEmpty()) {
+            emptyGallery.visibility = View.VISIBLE
+        } else {
+            emptyGallery.visibility = View.GONE
+        }
     }
 
     companion object {
