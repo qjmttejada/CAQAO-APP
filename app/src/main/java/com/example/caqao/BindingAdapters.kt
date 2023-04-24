@@ -217,8 +217,8 @@ fun bindFissuringGradeBarChart(barChart: BarChart, cacaoDetection: CacaoDetectio
     barData = BarData(barDataSet)
     barDataSet.setColors(
 
-        Color.rgb(0,110,179),  // G2
-        Color.rgb(74,201,227), // G3
+        Color.rgb(74,201,227), // G2
+        Color.rgb(0,110,179),  // G3
         Color.rgb(183,221,225), // G4
         Color.rgb(40,87,128), // G1
     )
