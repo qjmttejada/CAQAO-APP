@@ -69,6 +69,19 @@ class CacaoDetailViewModel(
         }
     }
 
+    fun deleteCacaoDetectionWithId(cacaoDetectionId: Int) {
+        viewModelScope.launch {
+            try {
+                com.example.caqao.models.USER_TOKEN?.let {
+                    CacaoApi.retrofitService.deleteDetectionWithId(
+                        it, cacaoDetectionId)
+                }
+            } catch (e: Exception) {
+                Log.d("DeleteByIDFailed", "Error: ${e}")
+            }
+        }
+    }
+
     /**
      * Call this immediately after navigating to [GalleryFragment]
      */

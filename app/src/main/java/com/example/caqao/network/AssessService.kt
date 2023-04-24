@@ -13,7 +13,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
-private const val BASE_URL = "http://192.168.55.118:5000"
+private const val BASE_URL = "http://192.168.74.32:5000"
 
 val client = OkHttpClient.Builder()
     .connectTimeout(30, TimeUnit.SECONDS)
@@ -61,6 +61,13 @@ interface CacaoApiService {
         @Header("x-access-token") token: String,
         @Field("cacaoDetectionId") cacaoDetectionId: Int,
     ): CacaoDetection
+
+    @POST("delete")
+    @FormUrlEncoded
+    suspend fun deleteDetectionWithId(
+        @Header("x-access-token") token: String,
+        @Field("cacaoDetectionId") cacaoDetectionId: Int,
+    )
 
     @POST("register")
     suspend fun createUser(@Body user: User): UserAccountCreationStatus

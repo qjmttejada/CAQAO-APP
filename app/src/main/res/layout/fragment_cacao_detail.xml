@@ -962,6 +962,7 @@
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <GridLayout
+                        android:id="@+id/fissuringGrid"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:columnCount="4"
@@ -1145,11 +1146,22 @@
 
 
                         </com.google.android.material.card.MaterialCardView>
-
-
-
                     </GridLayout>
                 </HorizontalScrollView>
+
+                <Button
+                    android:id="@+id/delete_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="Delete"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fissuringGrid"
+                    tools:ignore="NotSibling" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
