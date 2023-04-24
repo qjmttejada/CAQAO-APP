@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.activity.OnBackPressedCallback
 import com.example.caqao.CacaoDetectionListener
@@ -55,6 +56,9 @@ class GalleryFragment : Fragment() {
             override fun handleOnBackPressed() {
             }
         })
+
+        val emptyGallery = view.findViewById<TextView>(R.id.empty_gallery)
+        
     }
 
     companion object {
