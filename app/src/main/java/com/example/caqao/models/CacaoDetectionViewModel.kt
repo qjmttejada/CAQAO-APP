@@ -114,6 +114,7 @@ class CacaoDetectionViewModel: ViewModel() {
             try {
                 _detections.value = USER_TOKEN?.let { CacaoApi.retrofitService.getDetections(it) }
                 _detectionStatus.value = "Success: CAQAO detections retrieved"
+                _savedImagesCount.value = _detections.value?.size
             } catch (e: Exception) {
                 _detectionStatus.value = "Failure: ${e.message}"
             }
@@ -188,5 +189,9 @@ class CacaoDetectionViewModel: ViewModel() {
         }
         return deferred.await()
     }
+
+    private val _savedImagesCount = MutableLiveData<Int>()
+    val savedImagesCount: LiveData<Int> = _savedImagesCount
+
 
 }
