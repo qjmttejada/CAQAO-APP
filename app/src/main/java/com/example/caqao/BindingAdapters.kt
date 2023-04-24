@@ -138,12 +138,12 @@ fun bindCacaoColorBarchart(barChart: BarChart, cacaoDetection: CacaoDetection?) 
     barList.add(BarEntry(2f, cacaoDetection?.partlyPurple?.toFloat() ?: 0f))
     barList.add(BarEntry(3f, cacaoDetection?.totalPurple?.toFloat() ?: 0f))
     // sort the entries by decreasing value
-    barList.sortByDescending { it.y }
+    //barList.sortByDescending { it.y }
     barDataSet = BarDataSet(barList, "Cacao Colors")
     barData = BarData(barDataSet)
     barDataSet.setColors(
-        Color.rgb(150,75,0), //  brown
         Color.rgb(56,28,0), // very dark brown
+        Color.rgb(150,75,0), //  brown
         Color.rgb(156,68,172), // partly purple
         Color.rgb(102,4,131), // total purple
     )
@@ -175,7 +175,7 @@ fun bindCacaoDefectBarchart(barChart: BarChart, cacaoDetection: CacaoDetection?)
     barList.add(BarEntry(2f, cacaoDetection?.insectInfested?.toFloat() ?: 0f))
     barList.add(BarEntry(3f, cacaoDetection?.germinated?.toFloat() ?: 0f))
     // sort the entries by decreasing value
-    barList.sortByDescending { it.y }
+    // barList.sortByDescending { it.y }
     barDataSet = BarDataSet(barList, "Cacao Defects")
     barData = BarData(barDataSet)
     barDataSet.setColors(
@@ -212,15 +212,14 @@ fun bindFissuringGradeBarChart(barChart: BarChart, cacaoDetection: CacaoDetectio
     barList.add(BarEntry(2f, cacaoDetection?.g3?.toFloat() ?: 0f))
     barList.add(BarEntry(3f, cacaoDetection?.g4?.toFloat() ?: 0f))
     // sort the entries by decreasing value
-    barList.sortByDescending { it.y }
+    // barList.sortByDescending { it.y }
     barDataSet = BarDataSet(barList, "Fissuring Grades")
     barData = BarData(barDataSet)
     barDataSet.setColors(
-
-        Color.rgb(74,201,227), // G2
-        Color.rgb(0,110,179),  // G3
-        Color.rgb(183,221,225), // G4
         Color.rgb(40,87,128), // G1
+        Color.rgb(0,110,179),  // G2
+        Color.rgb(74,201,227), // G3
+        Color.rgb(183,221,225), // G4
     )
     barChart.data = barData
     barDataSet.valueTextColor= Color.BLACK
