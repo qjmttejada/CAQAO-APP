@@ -6,6 +6,7 @@ import android.view.*
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.caqao.R
 import com.example.caqao.caqaodetail.CacaoDetailViewModel

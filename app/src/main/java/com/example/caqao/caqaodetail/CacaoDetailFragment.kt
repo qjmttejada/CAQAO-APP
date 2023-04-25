@@ -60,16 +60,16 @@ class CacaoDetailFragment : Fragment() {
 
         // delete record
         binding.deleteButton.setOnClickListener {
-            arguments?.getInt("cacaoDetectionId")
-                ?.let { it1 ->
-                    if (cacaoDetailViewModel != null) {
-                        cacaoDetailViewModel.deleteCacaoDetectionWithId(it1)
-                    }
-                }
-            Toast.makeText(requireContext(), "Record Deleted",
-                Toast.LENGTH_SHORT).show()
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, GalleryFragment()).commit()
+            val showDeleteDialog = DeleteDialogFragment()
+            val args = Bundle()
+            cacaoDetailViewModel!!.cacaoDetection.value?.id?.let { it1 ->
+                args.putInt("cacaoDetectionId",
+                    it1
+                )
+            }
+            showDeleteDialog.arguments = args
+            showDeleteDialog.show((activity as AppCompatActivity).supportFragmentManager,"showDeletePopUp")
+
         }
 
         return binding.root

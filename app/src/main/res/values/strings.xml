@@ -19,8 +19,8 @@
     <string name="defects_description">Defective beans are cacao beans that are mouldy, insect-infested, slaty, and germinated. If a bean presents two or more defects, the defect that counts as the worse condition is the one that appears first in the list. The list is in descending order of importance; with mouldy having the highest importance and germinated having the lowest importance. </string>
     <string name="mouldy_description">Mold present on parts of the cacao bean which is visible to the naked eye.</string>
     <string name="germinated_description">Shell of the cacao which have been pierced, slit or broken by a growth of the seed germ or presence of radicle.</string>
-    <string name="insect_description">Cacao bean of which its parts are found to contain insects or have been damaged by insects .</string>
-    <string name="slate_description">Cacao bean which is unfissured and shows a purple-gray color on half or more of the surface exposed by the cut test.</string>
+    <string name="insect_description">Cacao bean of which its parts are found to contain insects or have been damaged by insects.</string>
+    <string name="slate_description">Cacao bean which is unfissured and shows a purple-gray color on half or more of the surface.</string>
 
     <string name="color_description">Cacao beans which has undergone fermentation process of which the cotyledons are fissured with color ranging from brown, partly purple, total purple, and very dark brown.</string>
     <string name="color_brown_description">Cacao beans that have light to dark brown coloration. These cacao beans are fully fermented and used to make high-quality cacao products.</string>
