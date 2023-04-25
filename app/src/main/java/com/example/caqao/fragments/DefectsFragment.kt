@@ -22,7 +22,7 @@ class DefectsFragment : Fragment() {
         binding = FragmentDefectsBinding.inflate(layoutInflater)
 
         binding.mouldyImgButton.setOnClickListener {
-            val showMouldyDialog = DialogFragment()
+            val showMouldyDialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 1)
             showMouldyDialog.arguments = args
@@ -30,7 +30,7 @@ class DefectsFragment : Fragment() {
         }
 
         binding.insectImgButton.setOnClickListener {
-            val showInsectDialog = DialogFragment()
+            val showInsectDialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 2)
             showInsectDialog.arguments = args
@@ -38,7 +38,7 @@ class DefectsFragment : Fragment() {
         }
 
         binding.slateImgButton.setOnClickListener {
-            val showSlateDialog = DialogFragment()
+            val showSlateDialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 3)
             showSlateDialog.arguments = args
@@ -46,7 +46,7 @@ class DefectsFragment : Fragment() {
         }
 
         binding.germinatedImgButton.setOnClickListener {
-            val showGerminatedDialog = DialogFragment()
+            val showGerminatedDialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 4)
             showGerminatedDialog.arguments = args

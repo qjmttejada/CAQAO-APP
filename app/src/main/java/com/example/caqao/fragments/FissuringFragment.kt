@@ -24,7 +24,7 @@ class FissuringFragment : Fragment() {
         binding = FragmentFissuringBinding.inflate(layoutInflater)
 
         binding.g1ImgButton.setOnClickListener {
-            val showG1Dialog = DialogFragment()
+            val showG1Dialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 9)
             showG1Dialog.arguments = args
@@ -32,7 +32,7 @@ class FissuringFragment : Fragment() {
         }
 
         binding.g2ImgButton.setOnClickListener {
-            val showG2Dialog = DialogFragment()
+            val showG2Dialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 10)
             showG2Dialog.arguments = args
@@ -40,7 +40,7 @@ class FissuringFragment : Fragment() {
         }
 
         binding.g3ImgButton.setOnClickListener {
-            val showG3Dialog = DialogFragment()
+            val showG3Dialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 11)
             showG3Dialog.arguments = args
@@ -48,7 +48,7 @@ class FissuringFragment : Fragment() {
         }
 
         binding.g4ImgButton.setOnClickListener {
-            val showG4Dialog = DialogFragment()
+            val showG4Dialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 12)
             showG4Dialog.arguments = args

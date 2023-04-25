@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.CacaoDetectionListener
 import com.example.caqao.CacaoGridAdapter
@@ -41,6 +42,7 @@ class GalleryFragment : Fragment() {
 
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment, fragment).commit()
+
         })
 
 
@@ -51,9 +53,9 @@ class GalleryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         sharedViewModel.savedImagesCount.observe(viewLifecycleOwner) { count ->
-            // Update UI with the count of saved images
+
+            (binding.photosGrid.adapter as CacaoGridAdapter).notifyItemInserted(binding.photosGrid.adapter?.itemCount ?: 0)
 
             val numberOfSavedImages = sharedViewModel.savedImagesCount.value
             if (numberOfSavedImages != null) {
@@ -66,11 +68,10 @@ class GalleryFragment : Fragment() {
                     // number of saved images is odd
                     binding.photosGrid.addItemDecoration(LastItemBottomMarginDecorator(resources.getDimensionPixelSize(R.dimen.fab_margin1)))
                 }
+
             } else {
                 // handle the case when the number of saved images is null
             }
-
-
 
         }
 

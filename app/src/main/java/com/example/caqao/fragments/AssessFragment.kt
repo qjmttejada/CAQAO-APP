@@ -62,11 +62,15 @@ class AssessFragment : Fragment() {
             captureAgainBtn.setOnClickListener {
                //  sharedViewModel.selectImage(null)
 //                cameraCheckPermission()
-                Toast.makeText(
-                    requireContext(),
-                    "Invalid Image: Capture Image Again",
-                    Toast.LENGTH_SHORT
-                ).show()
+//                Toast.makeText(
+//                    requireContext(),
+//                    "Invalid Image: Capture Image Again",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+
+                //return to camera
+//                val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+//                startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE)
 
              requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
