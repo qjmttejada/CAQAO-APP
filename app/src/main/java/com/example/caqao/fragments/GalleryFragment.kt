@@ -27,6 +27,8 @@ class GalleryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity).supportActionBar?.title = "Gallery"
+
         binding = FragmentGalleryBinding.inflate(inflater)
 
         binding.viewModel = sharedViewModel
