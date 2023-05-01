@@ -43,29 +43,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_marginTop="35dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:imageUrl="@{viewModel.cacaoDetection.imgSrcUrl}"
-                    app:caqaoApiStatus="@{viewModel.status}"
-                    android:scaleType="fitCenter"
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    />
+                    android:scaleType="fitCenter"
+                    app:caqaoApiStatus="@{viewModel.status}"
+                    app:imageUrl="@{viewModel.cacaoDetection.imgSrcUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/qaResults"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="0dp"
-                    android:layout_marginEnd="0dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginEnd="0dp"
                     android:fontFamily="@font/lato_black"
                     android:text="Quality Assessment Results"
                     android:textColor="@color/black"
                     android:textSize="28sp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/resultsRoundedRectangle" />
 
 
@@ -103,8 +102,8 @@
                     android:layout_height="80dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="15dp"
-                    app:boxBackgroundMode="filled"
                     android:textColor="@color/black"
+                    app:boxBackgroundMode="filled"
                     app:boxCornerRadiusBottomEnd="10dp"
                     app:boxCornerRadiusBottomStart="10dp"
                     app:boxCornerRadiusTopEnd="10dp"
@@ -116,12 +115,12 @@
                         android:id="@+id/beanGradeInputText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.cacaoDetection.beanGrade}"
-                        android:fontFamily="@font/lato_bold"
-                        android:textSize="18sp"
                         android:backgroundTint="@color/colorSecondaryLight"
+                        android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
+                        android:text="@{viewModel.cacaoDetection.beanGrade}"
                         android:textColor="@color/black"
-                        android:gravity="center"/>
+                        android:textSize="18sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -153,270 +152,273 @@
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:columnCount="6"
-                        android:rowCount="1"
-                        android:paddingRight="10dp">
+                        android:paddingRight="10dp"
+                        android:rowCount="1">
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g1a_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 1A"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
+                                android:fontFamily="@font/lato"
                                 android:padding="10dp"
                                 android:text="@string/grade1a"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g1b_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 1B"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"
-                                    />
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/grade1b"
-                                android:padding="10dp"
-                                android:textSize="14sp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/grade1b"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g1c_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 1C"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/grade1c"
-                                android:textSize="14sp"
-                                android:padding="10dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/grade1c"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g2a_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 2A"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/grade2a"
-                                android:textSize="14sp"
-                                android:padding="10dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/grade2a"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g2b_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 2B"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"
-                                    />
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/grade2b"
-                                android:textSize="14sp"
-                                android:padding="10dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/grade2b"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g2c_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 2C"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/grade2c"
-                                android:textSize="13sp"
-                                android:padding="10dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/grade2c"
+                                android:textColor="@color/white"
+                                android:textSize="13sp">
 
                             </TextView>
 
@@ -482,181 +484,183 @@
                         android:layout_width="wrap_content"
                         android:layout_height="190dp"
                         android:columnCount="4"
-                        android:rowCount="1"
-                        android:paddingRight="10dp">
+                        android:paddingRight="10dp"
+                        android:rowCount="1">
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/mouldy_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="140dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#6D9D5C"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Mouldy"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
+                                android:fontFamily="@font/lato"
                                 android:padding="20dp"
                                 android:text="@string/mouldy_description"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/lato"
-                                android:textColor="@color/black">
+                                android:textColor="@color/black"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/insect_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="140dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="@color/colorSecondaryDark"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Insect-infested"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"
-                                    />
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/insect_description"
-                                android:padding="20dp"
-                                android:textSize="14sp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/black">
+                                android:padding="20dp"
+                                android:text="@string/insect_description"
+                                android:textColor="@color/black"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/slate_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="140dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#768692"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Slate"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/slate_description"
-                                android:textSize="14sp"
-                                android:padding="20dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/black">
+                                android:padding="20dp"
+                                android:text="@string/slate_description"
+                                android:textColor="@color/black"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/germinated_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="140dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#AD8D6F"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Germinated"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/germinated_description"
-                                android:textSize="14sp"
-                                android:padding="20dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/black">
+                                android:padding="20dp"
+                                android:text="@string/germinated_description"
+                                android:textColor="@color/black"
+                                android:textSize="14sp">
 
                             </TextView>
 
@@ -722,187 +726,188 @@
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:columnCount="4"
-                        android:rowCount="1"
-                        android:paddingRight="10dp">
+                        android:paddingRight="10dp"
+                        android:rowCount="1">
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/brown_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#964B00"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Brown"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
+                                android:fontFamily="@font/lato"
                                 android:padding="10dp"
                                 android:text="@string/color_brown_description"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/partlypurple_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#9C44AC"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Partly Purple"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"
-                                    />
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/color_partlypurple_description"
-                                android:padding="10dp"
-                                android:textSize="14sp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/color_partlypurple_description"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/totalpurple_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#660483"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Total Purple"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/color_partlypurple_description"
-                                android:textSize="14sp"
-                                android:padding="10dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/color_partlypurple_description"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/verydarkbrown_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#381C00"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Very Dark Brown"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/color_verydarkbrown_description"
-                                android:textSize="14sp"
-                                android:padding="10dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/color_verydarkbrown_description"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
-
 
 
                     </GridLayout>
@@ -958,198 +963,215 @@
                     android:fillViewport="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/title_fissuringLegend"
-                    app:layout_constraintBottom_toBottomOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/title_fissuringLegend">
 
                     <GridLayout
+                        android:id="@+id/fissuringGrid"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:columnCount="4"
-                        android:rowCount="1"
-                        android:paddingRight="10dp">
+                        android:paddingRight="10dp"
+                        android:rowCount="1">
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g1_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#285780"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 1"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
+                                android:fontFamily="@font/lato"
                                 android:padding="10dp"
                                 android:text="@string/g1_description"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g2_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#006EB3"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 2"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"
-                                    />
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/g2_description"
-                                android:padding="10dp"
-                                android:textSize="14sp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/white">
+                                android:padding="10dp"
+                                android:text="@string/g2_description"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g3_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#4AC9E3"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 3"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/g3_description"
-                                android:textSize="14sp"
-                                android:textColor="@color/black"
+                                android:fontFamily="@font/lato"
                                 android:padding="10dp"
-                                android:fontFamily="@font/lato">
+                                android:text="@string/g3_description"
+                                android:textColor="@color/black"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/g4_legend_card"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
                             android:layout_margin="5dp"
-                            app:cardElevation="8dp"
+                            android:clickable="true"
                             app:cardBackgroundColor="#B7DDE1"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="8dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
-                                android:orientation="vertical"
                                 android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:backgroundTint="@color/colorSecondary"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="8dp"
                                     android:fontFamily="@font/lato_bold"
                                     android:text="Grade 4"
                                     android:textColor="@color/black"
-                                    android:textSize="17sp"
-                                    android:layout_margin="8dp"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:textSize="17sp" />
                             </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
-                                android:text="@string/g4_description"
-                                android:textSize="14sp"
-                                android:padding="10dp"
                                 android:fontFamily="@font/lato"
-                                android:textColor="@color/black">
+                                android:padding="10dp"
+                                android:text="@string/g4_description"
+                                android:textColor="@color/black"
+                                android:textSize="14sp">
 
                             </TextView>
 
 
                         </com.google.android.material.card.MaterialCardView>
-
-
-
                     </GridLayout>
                 </HorizontalScrollView>
+
+                <Button
+                    android:id="@+id/delete_button"
+                    android:layout_width="132dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/sign_in_btn"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:text="Delete"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fissuringLegend"
+                    tools:ignore="NotSibling" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -13,6 +14,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
 import com.example.caqao.databinding.FragmentCacaoDetailBinding
 import com.example.caqao.fragments.*
+import com.example.caqao.models.USER_TOKEN
 
 
 class CacaoDetailFragment : Fragment() {
@@ -22,6 +24,8 @@ class CacaoDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Get a reference to the binding object and inflate the fragment views.
+        (activity as AppCompatActivity).supportActionBar?.title = "Image Details"
+
         val binding: FragmentCacaoDetailBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_cacao_detail, container, false)
 
@@ -56,6 +60,19 @@ class CacaoDetailFragment : Fragment() {
                 "showDetectResultPopUp")
         }
 
+        // delete record
+        binding.deleteButton.setOnClickListener {
+            val showDeleteDialog = DeleteDialogFragment()
+            val args = Bundle()
+            cacaoDetailViewModel!!.cacaoDetection.value?.id?.let { it1 ->
+                args.putInt("cacaoDetectionId",
+                    it1
+                )
+            }
+            showDeleteDialog.arguments = args
+            showDeleteDialog.show((activity as AppCompatActivity).supportFragmentManager,"showDeletePopUp")
+
+        }
 
         return binding.root
     }

@@ -62,6 +62,13 @@ interface CacaoApiService {
         @Field("cacaoDetectionId") cacaoDetectionId: Int,
     ): CacaoDetection
 
+    @POST("delete")
+    @FormUrlEncoded
+    suspend fun deleteDetectionWithId(
+        @Header("x-access-token") token: String,
+        @Field("cacaoDetectionId") cacaoDetectionId: Int,
+    )
+
     @POST("register")
     suspend fun createUser(@Body user: User): UserAccountCreationStatus
     @POST("login")

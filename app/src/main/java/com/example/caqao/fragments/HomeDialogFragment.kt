@@ -1,22 +1,15 @@
 package com.example.caqao.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
-import coil.load
 import com.example.caqao.R
-import com.example.caqao.caqaodetail.CacaoDetailViewModel
-import com.example.caqao.databinding.FragmentAssessBinding
-import com.example.caqao.databinding.FragmentCacaoDetailDialogBinding
-import com.example.caqao.models.CacaoDetectionViewModel
 
 
-open class DialogFragment : DialogFragment() {
+open class HomeDialogFragment : DialogFragment() {
 
 //    private val sharedViewModel: CacaoDetailViewModel by activityViewModels()
 //    private lateinit var binding: FragmentCacaoDetailDialogBinding

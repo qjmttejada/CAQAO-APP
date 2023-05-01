@@ -23,7 +23,7 @@ class ColorFragment : Fragment() {
         binding = FragmentColorBinding.inflate(layoutInflater)
 
         binding.brownImgButton.setOnClickListener {
-            val showBrownDialog = DialogFragment()
+            val showBrownDialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 5)
             showBrownDialog.arguments = args
@@ -33,7 +33,7 @@ class ColorFragment : Fragment() {
         }
 
         binding.partlypurpleImgButton.setOnClickListener {
-            val showInsectDialog = DialogFragment()
+            val showInsectDialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 6)
             showInsectDialog.arguments = args
@@ -41,7 +41,7 @@ class ColorFragment : Fragment() {
         }
 
         binding.totalpurpleImgButton.setOnClickListener {
-            val showSlateDialog = DialogFragment()
+            val showSlateDialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 7)
             showSlateDialog.arguments = args
@@ -49,7 +49,7 @@ class ColorFragment : Fragment() {
         }
 
         binding.verydarkbrownImgButton.setOnClickListener {
-            val showGerminatedDialog = DialogFragment()
+            val showGerminatedDialog = HomeDialogFragment()
             val args = Bundle()
             args.putInt("layoutId", 8)
             showGerminatedDialog.arguments = args
